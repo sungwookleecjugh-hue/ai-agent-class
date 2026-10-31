@@ -1,0 +1,527 @@
+{
+  "id": "s3-config",
+  "title": "/CONFIG",
+  "summary": "/config·/status·/usage 로 설정과 계정, 사용량을 확인한다.",
+  "slides": [
+    {
+      "id": "s3-config-01",
+      "template": "screen",
+      "title": "/config",
+      "notes": [
+        {
+          "n": 1,
+          "head": "/config 로 진입",
+          "body": "/config 를 입력하면 설정 패널이 나타납니다."
+        },
+        {
+          "n": 2,
+          "head": "스크롤해서 더 보기",
+          "body": "항목이 한 화면에 다 들어가지 않으니 아래로 스크롤해서 나머지를 확인해보세요."
+        },
+        {
+          "n": "!",
+          "head": "테마·알림·모델처럼 자주 바꾸는 항목",
+          "body": "이 패널에는 테마, 알림, 모델처럼 평소 자주 바꾸는 항목이 모여 있습니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/config"
+          }
+        ]
+      },
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/config",
+              "badge": 1
+            },
+            {
+              "role": "tool",
+              "text": "Auto-update channel",
+              "badge": 2
+            },
+            {
+              "role": "assistant",
+              "text": "Theme"
+            },
+            {
+              "role": "assistant",
+              "text": "Notifications"
+            },
+            {
+              "role": "assistant",
+              "text": "Output style"
+            },
+            {
+              "role": "assistant",
+              "text": "Language  ·  Default (English)"
+            },
+            {
+              "role": "assistant",
+              "text": "Model  ·  Default (recommended)"
+            },
+            {
+              "role": "assistant",
+              "text": "Diff tool"
+            },
+            {
+              "role": "assistant",
+              "text": "Auto-scroll"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "s3-config-02",
+      "template": "table",
+      "title": "설정 항목 한눈에",
+      "columns": [
+        "설정 항목",
+        "종류",
+        "값"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Auto-update channel",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Theme",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Notifications",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Push when actions required",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Push when Claude decides",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Output style",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Default view",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Language",
+            "선택",
+            "Default (English)"
+          ]
+        },
+        {
+          "cells": [
+            "Editor mode",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Question auto-continue timeout",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Claude-proposed goals",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Show last response in external editor",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Show PR status footer",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Model",
+            "선택",
+            "Default (recommended)"
+          ]
+        },
+        {
+          "cells": [
+            "Diff tool",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Auto-connect to IDE (external terminal)",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Use auto mode during plan",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Respect .gitignore in file picker",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Skip the /copy picker",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Copy on select",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Auto-scroll",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Agents view",
+            "선택",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Open agents view by default",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "← opens agents",
+            "ON/OFF",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Session recap",
+            "ON/OFF",
+            "—"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3-config-03",
+      "template": "screen",
+      "title": "Language 한국어",
+      "notes": [
+        {
+          "n": 1,
+          "head": "Language 항목에 직접 입력",
+          "body": "Language 항목에 언어 이름이나 ISO 코드를 직접 입력해보세요."
+        },
+        {
+          "n": 2,
+          "head": "패널이 보여주는 원문 안내",
+          "body": "패널에는 Any language name or ISO code (e.g. 'ja'); use 'default' for English 라는 원문 안내가 그대로 표시됩니다."
+        },
+        {
+          "n": "!",
+          "head": "아무것도 안 바꾸면",
+          "body": "아무것도 입력하지 않으면 Default (English) 상태 그대로 유지됩니다."
+        }
+      ],
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/config",
+              "badge": 1
+            },
+            {
+              "role": "tool",
+              "text": "Language  ·  한국어 (입력 중)",
+              "badge": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "s3-config-04",
+      "template": "screen",
+      "title": "/status · Organization 확인",
+      "notes": [
+        {
+          "n": 1,
+          "head": "/status 로 확인",
+          "body": "/status 를 입력하면 계정 정보가 화면에 표시됩니다."
+        },
+        {
+          "n": 2,
+          "head": "Organization 행",
+          "body": "Organization 행에는 지금 로그인된 조직 계정 이름이 표시됩니다."
+        },
+        {
+          "n": "!",
+          "head": "이메일·조직명은 예시",
+          "body": "화면에 보이는 이메일과 조직명은 예시이고, 실제로는 내 계정 정보가 표시됩니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/status"
+          }
+        ]
+      },
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/status",
+              "badge": 1
+            },
+            {
+              "role": "assistant",
+              "text": "Version  ·  2.1.273 (Claude Code)"
+            },
+            {
+              "role": "assistant",
+              "text": "Session name  ·  /rename to add a name"
+            },
+            {
+              "role": "assistant",
+              "text": "cwd  ·  C:\\agent1"
+            },
+            {
+              "role": "tool",
+              "text": "Organization  ·  Example Org (예시)",
+              "badge": 2
+            },
+            {
+              "role": "assistant",
+              "text": "Email  ·  student@example.com (예시)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "s3-config-05",
+      "template": "compare",
+      "title": "/logout 과 /login",
+      "left": {
+        "label": "/logout",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [],
+          "noSidebar": true,
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "/logout"
+              },
+              {
+                "role": "assistant",
+                "text": "Successfully logged out from your Anthropic account.",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "PS C:\\agent1>"
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "/login",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [],
+          "noSidebar": true,
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "/login"
+              },
+              {
+                "role": "assistant",
+                "text": "Login successful. Press Enter to continue",
+                "badge": 2
+              }
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/logout",
+          "body": "/logout 을 입력하면 로그아웃되면서 Claude 가 종료되고 PS 줄로 돌아갑니다."
+        },
+        {
+          "n": 2,
+          "head": "/login",
+          "body": "/login 을 입력하고 브라우저에서 로그인을 마치면 Login successful 이 표시됩니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/logout"
+          },
+          {
+            "kind": "copy",
+            "value": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-config-06",
+      "template": "screen",
+      "title": "/usage · 터미널 사용량",
+      "notes": [
+        {
+          "n": 1,
+          "head": "Current session",
+          "body": "Current session 항목에서 지금 진행 중인 5시간 세션의 사용량을 확인할 수 있습니다."
+        },
+        {
+          "n": 2,
+          "head": "Current week (all models)",
+          "body": "Current week (all models) 항목은 이번 주 전체 모델 사용량을 합쳐서 보여줍니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/usage"
+          }
+        ]
+      },
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/usage"
+            }
+          ],
+          "usage": [
+            {
+              "label": "Current session",
+              "pct": 38,
+              "resets": "5pm (Asia/Seoul)",
+              "badge": 1
+            },
+            {
+              "label": "Current week (all models)",
+              "pct": 12,
+              "resets": "Sep 28, 9am (Asia/Seoul)",
+              "badge": 2
+            },
+            {
+              "label": "Current week (Sonnet only)",
+              "pct": 7,
+              "resets": "Sep 28, 9am (Asia/Seoul)"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

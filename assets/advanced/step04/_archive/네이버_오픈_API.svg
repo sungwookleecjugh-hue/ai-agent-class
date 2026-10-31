@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect x="60" y="44" width="78" height="24" rx="12" fill="#2563eb"/>
+  <text x="99" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.05em">ADV 04</text>
+  <text x="60" y="130" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="40" font-weight="700" fill="#171717">네이버 오픈 API</text>
+  <text x="60" y="178" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#6b7280">국내 최대 플랫폼의 검색·번역·지도·TTS 기능을 무료로 활용합니다</text>
+  <line x1="60" y1="212" x2="1220" y2="212" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="264" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="600" fill="#9ca3af" letter-spacing="0.08em">특징</text>
+  <text x="60" y="308" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">무료 쿼터 제공  /  카드 등록 불필요  /  한국어 데이터 강점</text>
+  <text x="60" y="350" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">클라이언트 ID + Secret  두 가지 키만으로 모든 API 사용 가능</text>
+  <line x1="60" y1="386" x2="1220" y2="386" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="426" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="600" fill="#9ca3af" letter-spacing="0.08em">이번 강의에서 사용할 API  —  데이터랩</text>
+  <rect x="60" y="440" width="540" height="90" rx="8" fill="#eff6ff"/>
+  <text x="84" y="470" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">검색어 트렌드 API</text>
+  <text x="84" y="494" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">기간별 검색어 트렌드 비교 (최대 5개 키워드)</text>
+  <text x="84" y="514" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">시장 조사 · 마케팅 분석에 활용</text>
+  <rect x="640" y="440" width="580" height="90" rx="8" fill="#eff6ff"/>
+  <text x="664" y="470" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">쇼핑인사이트 API</text>
+  <text x="664" y="494" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">쇼핑 카테고리별 클릭 트렌드 분석</text>
+  <text x="664" y="514" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">제품·카테고리 수요 분석에 활용</text>
+  <rect x="60" y="568" width="1160" height="52" rx="10" fill="#eff6ff"/>
+  <text x="640" y="599" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" fill="#2563eb">developers.naver.com  —  가입 후 애플리케이션 등록만 하면 즉시 사용 가능</text>
+</svg>

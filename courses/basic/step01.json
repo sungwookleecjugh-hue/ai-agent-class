@@ -1,0 +1,986 @@
+{
+  "step": 1,
+  "title": "AI 에이전트 이해와 CLI 환경 구축",
+  "hours": "2시간",
+  "goal": "AI 에이전트의 개념을 이해하고, VS Code 환경에서 Antigravity CLI 를 직접 설치한 뒤 그 에이전트에게 나머지 두 CLI(Codex · Claude Code) 설치를 맡긴다. '에이전트1' 폴더 하나에서 세 에이전트로 같은 실습을 완수하고 결과를 비교한다.",
+  "topics": [
+    "AI 에이전트란? / 설치형 AI란?",
+    "VS Code 환경 설정 및 터미널 기초",
+    "Antigravity CLI 설치 · VS Code 재실행 · 로그인",
+    "agy 에게 Codex · Claude Code 설치와 PATH 등록 맡기기",
+    "Codex CLI 로그인 및 실습",
+    "Claude Code 로그인 및 실습",
+    "3대 에이전트 실습 결과 비교"
+  ],
+  "practice": "Antigravity 를 설치해 PATH 를 잡고, 이어서 Claude Code 와 Codex 를 설치한 뒤 같은 명령으로 셋을 한 번에 잡는다. '에이전트1' 폴더에서 세 에이전트에 같은 4단계 실습을 시킨다.",
+  "parts": [
+    {
+      "title": "AI 에이전트 이해",
+      "from": 1,
+      "to": 6
+    },
+    {
+      "title": "개발 환경 준비",
+      "from": 7,
+      "to": 13
+    },
+    {
+      "title": "Antigravity 설치와 PATH",
+      "from": 14,
+      "to": 17
+    },
+    {
+      "title": "Antigravity 로그인",
+      "from": 18,
+      "to": 21
+    },
+    {
+      "title": "Antigravity 초기 설정",
+      "from": 22,
+      "to": 26
+    },
+    {
+      "title": "Antigravity 실습 4단계",
+      "from": 27,
+      "to": 32
+    },
+    {
+      "title": "Claude Code · Codex 설치",
+      "from": 33,
+      "to": 36
+    },
+    {
+      "title": "Codex 시작과 실습",
+      "from": 37,
+      "to": 45
+    },
+    {
+      "title": "Claude Code 로그인과 세팅",
+      "from": 46,
+      "to": 55
+    },
+    {
+      "title": "Claude Code 실습",
+      "from": 56,
+      "to": 63
+    },
+    {
+      "title": "마무리",
+      "from": 64,
+      "to": 65
+    }
+  ],
+  "slides": [
+    {
+      "imagePath": "assets/basic/step01/AI_에이전트란.png",
+      "goal": "AI 에이전트의 개념과 SEE-THINK-PLAN-DO-FIX 동작 루프를 이해한다.",
+      "topics": [
+        "에이전트(Agent)란 무엇인가?",
+        "SEE-THINK-PLAN-DO-FIX 루프",
+        "도구(Tools) 활용 방식",
+        "설치형 CLI 에이전트의 특징"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/AI_에이전트_현황.png",
+      "goal": "글로벌 AI 기업 3종의 CLI 에이전트 특징을 파악한다.",
+      "topics": [
+        "GPT CLI (Codex) - OpenAI",
+        "Claude Code - Anthropic",
+        "Antigravity CLI - Google (구 Gemini CLI)",
+        "각 에이전트의 특화 기능 비교"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/에이전트_동작_방식_①.png",
+      "goal": "사람이 직접 수행하는 기존 방식의 한계를 이해한다.",
+      "topics": [
+        "웹 검색으로 명령어 찾기",
+        "검색 결과 판단 및 복사",
+        "cmd 열기 → 붙여넣기 → 실행",
+        "반복 작업의 비효율성"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/에이전트_동작_방식_②.png",
+      "goal": "AI에게 질문하는 방식과 그 한계를 파악한다.",
+      "topics": [
+        "ChatGPT에 자연어로 질문",
+        "AI가 명령어를 알려주는 방식",
+        "여전히 사람이 직접 실행해야 함",
+        "자동화와의 차이점"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/에이전트_동작_방식_③.png",
+      "goal": "에이전트 프로그램이 명령을 자동 감지·실행하는 원리를 이해한다.",
+      "topics": [
+        "시스템 프롬프트로 출력 형식 지정",
+        "command{} 패턴 자동 감지",
+        "터미널에서 명령 자동 실행",
+        "지시 → 판단 → 행동의 에이전트 루프"
+      ],
+      "practice": "시스템 프롬프트를 작성하여 에이전트가 명령어를 자동 감지하고 실행하는 흐름을 직접 확인한다.",
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/어떤_AI로_진행하나요.png",
+      "goal": "이 강의에서 사용하는 Claude Pro 플랜의 특징과 효율적인 사용법을 이해한다.",
+      "topics": [
+        "Claude Pro — 월 약 $20, 5시간 세션 초기화",
+        "매일 사용 + 자기 분야 적용 = AI 전문가",
+        "현재 사용량 확인: claude.ai/settings/usage"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/오늘_완성할_환경.png",
+      "goal": "VS Code 안에서 CLI 3종을 사용하는 전체 실습 환경을 이해한다.",
+      "topics": [
+        "VS Code를 공통 작업 공간으로 사용",
+        "실습 폴더는 '에이전트1' 하나 — 세 에이전트가 같은 폴더에서 작업한다",
+        "세 에이전트에 동일한 4단계 실습 수행",
+        "일반 터미널과 AI CLI 상태 구분"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/VS_Code_설치.png",
+      "goal": "공식 사이트에서 VS Code를 다운로드하여 설치한다.",
+      "topics": [
+        "code.visualstudio.com 다운로드",
+        "Windows 및 macOS 설치",
+        "비개발자 친화적인 통합 작업 환경 구축"
+      ],
+      "practice": null,
+      "action": {
+        "label": "다운로드",
+        "download": {
+          "href": "https://code.visualstudio.com/download",
+          "text": "VS Code 다운로드 페이지"
+        }
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/VS_Code_화면_구성.png",
+      "goal": "VS Code의 다크모드 화면 구성과 우측 터미널 패널(Panel: Right) 배치를 파악한다.",
+      "topics": [
+        "좌측 탐색기(파일 및 폴더 목록)",
+        "중앙 편집기(코드·문서 확인 및 수정)",
+        "우측 패널(터미널 위치 · Panel Position: Right)",
+        "현재 열린 작업 폴더(에이전트1) 확인"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/실습_폴더_에이전트1.png",
+      "goal": "실습 폴더 '에이전트1'을 만들고 VS Code에서 연다.",
+      "topics": [
+        "에이전트1 폴더 생성 후 VS Code에서 열기",
+        "File > Open Folder",
+        "하위 폴더는 만들지 않는다 — 세 에이전트가 이 폴더 하나를 같이 쓴다"
+      ],
+      "practice": null,
+      "action": {
+        "label": "폴더 이름",
+        "copy": "에이전트1"
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/Ctrl_J로_터미널_열기.png",
+      "goal": "Ctrl + J 단축키로 패널(우측 터미널)을 열고 터미널 탭을 확인한다.",
+      "topics": [
+        "Ctrl + J로 패널(터미널) 열기/닫기 토글",
+        "우측 패널(Panel: Right) 터미널 확인",
+        "PowerShell 또는 zsh 프롬프트 확인"
+      ],
+      "practice": null,
+      "action": {
+        "label": "터미널 열기 단축키",
+        "items": [
+          {
+            "desc": "Windows",
+            "copy": "Ctrl + J"
+          },
+          {
+            "desc": "macOS",
+            "copy": "Cmd + J"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/터미널과_AI_CLI_상태.png",
+      "goal": "일반 터미널 상태와 AI CLI 실행 상태의 차이를 이해한다.",
+      "topics": [
+        "일반 터미널 프롬프트(PS C:\\...> / %)",
+        "AI CLI 프롬프트(대화창/입력창)",
+        "명령어 실행 vs 자연어 작업 지시의 차이",
+        "Ctrl + C로 언제든 일반 터미널로 복귀"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/터미널_기본_명령어.png",
+      "goal": "설치 전에 터미널에 명령을 직접 쳐보고, 반응하는 것을 확인한다.",
+      "topics": [
+        "echo 안녕하세요 — 친 대로 받아 그대로 돌려준다",
+        "한 줄 치고 Enter → 한 줄로 답한다. AI CLI 대화창과 다른 점",
+        "clear — 화면만 비운다. 파일·폴더는 지워지지 않는다",
+        "두 명령 모두 Windows · macOS 동일 (Windows 는 cls 도 가능)"
+      ],
+      "practice": "터미널에 두 명령을 직접 쳐서 출력과 화면 정리를 확인한다.",
+      "action": {
+        "label": "터미널 기본 명령어",
+        "items": [
+          {
+            "desc": "① 출력해 보기",
+            "copy": "echo 안녕하세요"
+          },
+          {
+            "desc": "② 화면 비우기",
+            "copy": "clear"
+          },
+          {
+            "desc": "Windows 는 이것도 됩니다",
+            "copy": "cls"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_설치.png",
+      "goal": "공식 네이티브 설치 스크립트로 Antigravity CLI를 설치한다.",
+      "topics": [
+        "공식 설치 스크립트 실행",
+        "Windows: irm https://antigravity.google/cli/install.ps1 | iex",
+        "macOS: curl -fsSL https://antigravity.google/cli/install.sh | bash",
+        "실행 파일 설치 완료 확인"
+      ],
+      "practice": null,
+      "action": {
+        "label": "설치 명령어",
+        "items": [
+          {
+            "desc": "Windows",
+            "copy": "irm https://antigravity.google/cli/install.ps1 | iex"
+          },
+          {
+            "desc": "macOS",
+            "copy": "curl -fsSL https://antigravity.google/cli/install.sh | bash"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_PATH_오류.png",
+      "goal": "설치 직후 agy 명령을 찾지 못하는 원인을 파악한다.",
+      "topics": [
+        "'agy is not recognized' 오류 화면",
+        "원인: VS Code는 켜질 때의 PATH를 복사해 두므로, 켜둔 채 설치한 명령어를 새 터미널에도 못 싣는다",
+        "해결은 다음 슬라이드 — VS Code를 완전히 껐다 켠다 (명령어로 PATH 를 만지지 않는다)"
+      ],
+      "practice": null,
+      "action": {
+        "label": "확인 명령어",
+        "copy": "agy --version"
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_PATH_등록.png",
+      "goal": "PATH 를 반영한다. Windows 는 스크립트로 자동, macOS 는 설치가 알려준 줄을 그대로 붙여넣는다.",
+      "topics": [
+        "Windows — 액션박스 스크립트가 설치 위치를 자동으로 찾아 PATH 에 등록한다",
+        "macOS — 스크립트를 쓰지 않는다. agy 설치가 끝나며 터미널에 찍어준 Run: 줄을 그대로 복사해 붙여넣는다",
+        "그 줄은 export PATH 를 ~/.zshrc 에 추가하는 명령이다 — 화면에 실제로 찍힌 경로를 쓴다",
+        "지금은 agy 하나만 [v] 면 된다 — codex, claude 는 곧 설치한다"
+      ],
+      "practice": "Windows 는 액션박스 명령을 붙여넣고, macOS 는 방금 agy 설치 화면에 찍힌 Run: 줄을 그대로 복사해 터미널에 붙여넣은 뒤 agy --version 으로 확인한다.",
+      "action": {
+        "label": "PATH 한 번에 잡기",
+        "items": [
+          {
+            "desc": "Windows — PowerShell 에 통째로 붙여넣기",
+            "copy": "$names = 'agy','codex','claude'\n$guess = @{\n  agy    = @(\"$env:LOCALAPPDATA\\agy\\bin\")\n  codex  = @(\"$env:LOCALAPPDATA\\Programs\\OpenAI\\Codex\\bin\", \"$env:USERPROFILE\\.codex\\bin\")\n  claude = @(\"$env:USERPROFILE\\.local\\bin\")\n}\n$roots = @(@($env:LOCALAPPDATA, $env:APPDATA, $env:USERPROFILE) | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique)\n$where = @{}\nforeach ($n in $names) {\n  $dir = $null\n  $pre = Get-Command $n -ErrorAction SilentlyContinue\n  if ($pre -and $pre.Source) { $dir = Split-Path $pre.Source -Parent }\n  if (-not $dir) { foreach ($g in $guess[$n]) { if (Test-Path (Join-Path $g \"$n.exe\")) { $dir = $g; break } } }\n  if (-not $dir) {\n    foreach ($r in $roots) {\n      $hit = Get-ChildItem -Path $r -Filter \"$n.exe\" -Recurse -File -Depth 5 -ErrorAction SilentlyContinue | Select-Object -First 1\n      if ($hit) { $dir = $hit.DirectoryName; break }\n    }\n  }\n  if ($dir) { $where[$n] = $dir }\n}\n$found = @($where.Values | Select-Object -Unique)\nif ($found.Count -gt 0) {\n  $have = @([Environment]::GetEnvironmentVariable('Path','User') -split ';' | Where-Object { $_ })\n  $new  = @($found | Where-Object { $have -notcontains $_ })\n  if ($new.Count -gt 0) { [Environment]::SetEnvironmentVariable('Path', (($have + $new) -join ';'), 'User') }\n  $cur = @($env:Path -split ';' | Where-Object { $_ })\n  $now = @($found | Where-Object { $cur -notcontains $_ })\n  if ($now.Count -gt 0) { $env:Path = (($cur + $now) -join ';') }\n}\nWrite-Host \"\"\nWrite-Host \"  ────────────────────────────────────────────────────────────\"\n$ok = 0\nforeach ($n in $names) {\n  if (-not $where.ContainsKey($n)) {\n    Write-Host \"   [ ] \" -NoNewline -ForegroundColor Red\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Red\n    Write-Host \"아직 설치되지 않았습니다\" -ForegroundColor Red\n    continue\n  }\n  $exe = Join-Path $where[$n] \"$n.exe\"\n  $ver = $null\n  try { $ver = (& $exe --version 2>&1 | Select-Object -First 1) } catch { $ver = $null }\n  if ($ver) { $ver = ($ver -replace '\\s+', ' ').Trim() }\n  $byName = [bool](Get-Command $n -ErrorAction SilentlyContinue)\n  if ($ver -and $byName) {\n    Write-Host \"   [v] \" -NoNewline -ForegroundColor Green\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Green\n    Write-Host (\"사용 가능!  \" + $ver) -ForegroundColor Green\n    $ok++\n  } elseif ($ver) {\n    Write-Host \"   [!] \" -NoNewline -ForegroundColor Yellow\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Yellow\n    Write-Host ($ver + \"  — 설치는 됐지만 이 터미널이 아직 이름으로 못 찾습니다\") -ForegroundColor Yellow\n  } else {\n    Write-Host \"   [!] \" -NoNewline -ForegroundColor Yellow\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Yellow\n    Write-Host \"파일은 있는데 실행이 안 됩니다 — 설치를 다시 하세요\" -ForegroundColor Yellow\n  }\n}\nWrite-Host \"  ────────────────────────────────────────────────────────────\"\nif ($ok -eq 3) {\n  Write-Host \"   세 개 다 버전이 찍혔습니다. VS Code 껐다 켤 필요 없습니다.\" -ForegroundColor Cyan\n} else {\n  Write-Host (\"   \" + $ok + \"/3 확인됨. [!] 는 새 터미널을 열면 대개 해결됩니다.\") -ForegroundColor Yellow\n}\nWrite-Host \"\""
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_PATH_반영_및_실행.png",
+      "goal": "권한 확인 없이 agy 를 실행한다.",
+      "topics": [
+        "PATH 가 이미 잡혔으므로 VS Code 를 껐다 켤 필요가 없다",
+        "agy --version 으로 한 번 더 확인",
+        "agy --dangerously-skip-permissions 로 실행",
+        "확인 없이 파일·명령을 실행하는 모드다"
+      ],
+      "practice": null,
+      "action": {
+        "label": "확인하고 실행",
+        "items": [
+          {
+            "desc": "버전 확인",
+            "copy": "agy --version"
+          },
+          {
+            "desc": "실행",
+            "copy": "agy --dangerously-skip-permissions"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_Google_로그인_선택.png",
+      "goal": "로그인 방식으로 Google OAuth를 선택한다.",
+      "topics": [
+        "로그인 옵션 메뉴 확인",
+        "1. Google OAuth 선택",
+        "브라우저 연동 로그인 시작"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_Google_계정_선택.png",
+      "goal": "브라우저에서 Antigravity에 연결할 Google 계정을 선택한다.",
+      "topics": [
+        "브라우저 자동 열림 확인",
+        "사용할 Google 계정 클릭",
+        "권한 요청 내용 확인"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_브라우저_인증.png",
+      "goal": "브라우저에서 인증 코드를 확인하고 복사한다.",
+      "topics": [
+        "인증 완료 화면 확인",
+        "일회용 인증 코드 클립보드 복사",
+        "터미널로 돌아갈 준비"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_인증_코드_입력.png",
+      "goal": "터미널로 돌아와 인증 코드를 입력하고 로그인을 완료한다.",
+      "topics": [
+        "터미널 입력창에 복사한 코드 붙여넣기",
+        "로그인 성공 메시지 확인",
+        "실제 인증 코드는 외부에 노출 금지"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_테마_선택.png",
+      "goal": "Antigravity CLI 화면의 테마(색상)를 선택한다.",
+      "topics": [
+        "터미널 테마 목록 확인",
+        "방향키로 원하는 테마 선택 후 엔터"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_데이터_사용_설정.png",
+      "goal": "약관 및 데이터 사용 옵션을 설정하고, 방향키로 버튼 줄까지 내려간다.",
+      "topics": [
+        "데이터 사용 및 품질 개선 안내 — 체크 상태를 원하는 대로 둔다",
+        "마우스로 누를 수 없다 — 방향키로만 움직인다",
+        "체크 줄에서 방향키 ↓ 를 눌러 아래 버튼 줄([Previous] [Done])로 내려간다"
+      ],
+      "practice": null,
+      "action": {
+        "label": "여기서 누를 키",
+        "items": [
+          {
+            "desc": "체크 상태 바꾸기",
+            "copy": "Enter"
+          },
+          {
+            "desc": "버튼 줄로 내려가기",
+            "copy": "↓ (방향키 아래)"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_초기_설정_완료.png",
+      "goal": "방향키로 Done을 선택해 초기 설정을 끝내고 메인 화면으로 진입한다.",
+      "topics": [
+        "버튼 줄에서 방향키 → 를 눌러 [Previous] 에서 Done 으로 옮긴다",
+        "Done 이 선택된 상태에서 Enter — 대화 화면으로 넘어간다",
+        "정리하면 ↓ 그다음 → 그다음 Enter"
+      ],
+      "practice": null,
+      "action": {
+        "label": "여기서 누를 키",
+        "items": [
+          {
+            "desc": "Done 으로 옮기기",
+            "copy": "→ (방향키 오른쪽)"
+          },
+          {
+            "desc": "확정",
+            "copy": "Enter"
+          },
+          {
+            "desc": "앞 화면부터 순서대로",
+            "copy": "↓ → Enter"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_작업_폴더_신뢰.png",
+      "goal": "에이전트1 폴더에 대한 읽기·수정 권한을 허용한다.",
+      "topics": [
+        "작업 폴더 신뢰(Trust workspace) 안내",
+        "에이전트에게 파일 조작 권한 부여"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_실행_화면.png",
+      "goal": "Antigravity 실행 화면의 계정, 모델, 현재 폴더, 입력창을 확인한다.",
+      "topics": [
+        "상단 계정 및 모델명 표시",
+        "현재 작업 폴더(에이전트1) 확인",
+        "하단 프롬프트 입력창 구조"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_첫_대화_자기소개.png",
+      "goal": "첫 대화로 '너는 누구니?'를 입력하고 AI의 정체를 확인한다.",
+      "topics": [
+        "프롬프트 입력창에 자연어 질문 입력",
+        "Antigravity CLI의 자기소개 응답 확인"
+      ],
+      "practice": "Antigravity CLI 입력창에 '너는 누구니?'를 입력하고 응답을 확인한다.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "너는 누구니?"
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_자기소개서_생성.png",
+      "goal": "현재 폴더에 'gemini.txt'를 만들도록 요청한다.",
+      "topics": [
+        "파일 이름은 뒤에 있는 모델 이름으로 — Antigravity 는 Gemini 을 씁니다",
+        "자연어 한 줄로 파일 생성 지시",
+        "이름이 다르니 세 결과가 한 폴더에 나란히 남는다"
+      ],
+      "practice": "현재 폴더에 'gemini.txt'를 만들어줘.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "현재 폴더에 'gemini.txt'를 만들어줘.\n네가 누구이고 무엇을 할 수 있는지 간단히 작성해줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_파일_생성_확인.png",
+      "goal": "VS Code 탐색기에서 Antigravity가 만든 gemini.txt를 확인한다.",
+      "topics": [
+        "에이전트1 폴더에 gemini.txt 생성 확인",
+        "내용 열람",
+        "앞선 에이전트의 파일은 그대로 남아 있다"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_introduce_폴더_생성.png",
+      "goal": "Antigravity에 introduce 폴더 생성을 요청한다.",
+      "topics": [
+        "새 폴더 생성 자연어 요청",
+        "디렉토리 생성 확인"
+      ],
+      "practice": "현재 폴더에 'introduce' 폴더 생성을 요청한다.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "현재 폴더에 'introduce' 폴더를 만들어줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_자기소개서_이동.png",
+      "goal": "gemini.txt를 introduce 폴더로 이동하도록 요청한다.",
+      "topics": [
+        "파일 이동 작업 자연어 지시",
+        "파일 경로 변경 확인"
+      ],
+      "practice": "'gemini.txt'를 'introduce' 폴더로 옮겨줘.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "'gemini.txt'를 'introduce' 폴더로 옮겨줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_최종_폴더_구조.png",
+      "goal": "에이전트1/introduce/gemini.txt 최종 트리 구조를 확인한다.",
+      "topics": [
+        "introduce 폴더 안에 gemini.txt 가 들어갔는지 확인",
+        "에이전트가 완성한 실습 결과 점검"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/agy_Ctrl_C_종료.png",
+      "goal": "Ctrl + C 로 Antigravity 를 종료하고 일반 터미널로 돌아온다.",
+      "topics": [
+        "Ctrl + C 로 AI CLI 를 빠져나온다",
+        "프롬프트가 PS …&gt; 로 돌아왔는지 확인",
+        "여기서부터는 일반 터미널 명령을 친다 — 다음은 나머지 CLI 설치"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_설치.png",
+      "goal": "공식 설치 스크립트로 Claude Code 를 설치한다.",
+      "topics": [
+        "설치 명령 한 줄",
+        "설치가 끝나도 아직 claude 라고 치면 안 된다",
+        "이 터미널은 아직 새 경로를 모른다 — PATH 는 나중에 한 번에 잡는다"
+      ],
+      "practice": null,
+      "action": {
+        "label": "설치 명령어",
+        "items": [
+          {
+            "desc": "Windows",
+            "copy": "irm https://claude.ai/install.ps1 | iex"
+          },
+          {
+            "desc": "macOS",
+            "copy": "curl -fsSL https://claude.ai/install.sh | bash"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_설치.png",
+      "goal": "공식 설치 스크립트로 Codex CLI 를 설치한다.",
+      "topics": [
+        "-NoProfile 을 빼지 않는다",
+        "프로필의 StrictMode 가 켜져 있으면 설치가 중간에 멈춘다",
+        "이것까지 끝나면 PATH 를 한 번에 정리한다"
+      ],
+      "practice": null,
+      "action": {
+        "label": "설치 명령어",
+        "items": [
+          {
+            "desc": "Windows",
+            "copy": "powershell -NoProfile -ExecutionPolicy ByPass -c \"irm https://chatgpt.com/codex/install.ps1 | iex\""
+          },
+          {
+            "desc": "macOS",
+            "copy": "curl -fsSL https://chatgpt.com/codex/install.sh | sh"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/PATH_자동_등록.png",
+      "goal": "codex, claude 몫까지 PATH 를 마저 반영한다. Windows 는 같은 스크립트, macOS 는 새로 찍힌 줄을 그대로 붙여넣는다.",
+      "topics": [
+        "Windows — 같은 명령을 한 번 더 실행해 codex, claude 자리까지 함께 등록한다",
+        "macOS — codex, claude 설치가 끝나며 각각 찍어준 Run: 줄을 그대로 복사해 붙여넣는다",
+        "이미 등록된 줄은 다시 넣지 않아도 된다 — 새로 찍힌 줄만 추가하면 된다",
+        "버전이 찍히면 진짜 실행되는 것까지 확인된 것이다"
+      ],
+      "practice": "Windows 는 같은 명령을 한 번 더 붙여넣고, macOS 는 codex·claude 설치 화면에 찍힌 Run: 줄들을 그대로 복사해 터미널에 붙여넣은 뒤 각각 --version 으로 확인한다.",
+      "action": {
+        "label": "PATH 한 번에 잡기",
+        "items": [
+          {
+            "desc": "Windows — PowerShell 에 통째로 붙여넣기",
+            "copy": "$names = 'agy','codex','claude'\n$guess = @{\n  agy    = @(\"$env:LOCALAPPDATA\\agy\\bin\")\n  codex  = @(\"$env:LOCALAPPDATA\\Programs\\OpenAI\\Codex\\bin\", \"$env:USERPROFILE\\.codex\\bin\")\n  claude = @(\"$env:USERPROFILE\\.local\\bin\")\n}\n$roots = @(@($env:LOCALAPPDATA, $env:APPDATA, $env:USERPROFILE) | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique)\n$where = @{}\nforeach ($n in $names) {\n  $dir = $null\n  $pre = Get-Command $n -ErrorAction SilentlyContinue\n  if ($pre -and $pre.Source) { $dir = Split-Path $pre.Source -Parent }\n  if (-not $dir) { foreach ($g in $guess[$n]) { if (Test-Path (Join-Path $g \"$n.exe\")) { $dir = $g; break } } }\n  if (-not $dir) {\n    foreach ($r in $roots) {\n      $hit = Get-ChildItem -Path $r -Filter \"$n.exe\" -Recurse -File -Depth 5 -ErrorAction SilentlyContinue | Select-Object -First 1\n      if ($hit) { $dir = $hit.DirectoryName; break }\n    }\n  }\n  if ($dir) { $where[$n] = $dir }\n}\n$found = @($where.Values | Select-Object -Unique)\nif ($found.Count -gt 0) {\n  $have = @([Environment]::GetEnvironmentVariable('Path','User') -split ';' | Where-Object { $_ })\n  $new  = @($found | Where-Object { $have -notcontains $_ })\n  if ($new.Count -gt 0) { [Environment]::SetEnvironmentVariable('Path', (($have + $new) -join ';'), 'User') }\n  $cur = @($env:Path -split ';' | Where-Object { $_ })\n  $now = @($found | Where-Object { $cur -notcontains $_ })\n  if ($now.Count -gt 0) { $env:Path = (($cur + $now) -join ';') }\n}\nWrite-Host \"\"\nWrite-Host \"  ────────────────────────────────────────────────────────────\"\n$ok = 0\nforeach ($n in $names) {\n  if (-not $where.ContainsKey($n)) {\n    Write-Host \"   [ ] \" -NoNewline -ForegroundColor Red\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Red\n    Write-Host \"아직 설치되지 않았습니다\" -ForegroundColor Red\n    continue\n  }\n  $exe = Join-Path $where[$n] \"$n.exe\"\n  $ver = $null\n  try { $ver = (& $exe --version 2>&1 | Select-Object -First 1) } catch { $ver = $null }\n  if ($ver) { $ver = ($ver -replace '\\s+', ' ').Trim() }\n  $byName = [bool](Get-Command $n -ErrorAction SilentlyContinue)\n  if ($ver -and $byName) {\n    Write-Host \"   [v] \" -NoNewline -ForegroundColor Green\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Green\n    Write-Host (\"사용 가능!  \" + $ver) -ForegroundColor Green\n    $ok++\n  } elseif ($ver) {\n    Write-Host \"   [!] \" -NoNewline -ForegroundColor Yellow\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Yellow\n    Write-Host ($ver + \"  — 설치는 됐지만 이 터미널이 아직 이름으로 못 찾습니다\") -ForegroundColor Yellow\n  } else {\n    Write-Host \"   [!] \" -NoNewline -ForegroundColor Yellow\n    Write-Host (\"{0,-8}\" -f $n) -NoNewline -ForegroundColor Yellow\n    Write-Host \"파일은 있는데 실행이 안 됩니다 — 설치를 다시 하세요\" -ForegroundColor Yellow\n  }\n}\nWrite-Host \"  ────────────────────────────────────────────────────────────\"\nif ($ok -eq 3) {\n  Write-Host \"   세 개 다 버전이 찍혔습니다. VS Code 껐다 켤 필요 없습니다.\" -ForegroundColor Cyan\n} else {\n  Write-Host (\"   \" + $ok + \"/3 확인됨. [!] 는 새 터미널을 열면 대개 해결됩니다.\") -ForegroundColor Yellow\n}\nWrite-Host \"\""
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_설치_확인_및_실행.png",
+      "goal": "Codex 버전을 확인하고 codex를 실행한다.",
+      "topics": [
+        "codex --version 버전 확인",
+        "codex 입력하여 CLI 실행",
+        "설치와 PATH 등록은 agy 가 이미 끝냈다"
+      ],
+      "practice": null,
+      "action": {
+        "label": "확인 및 실행",
+        "items": [
+          {
+            "desc": "버전 확인",
+            "copy": "codex --version"
+          },
+          {
+            "desc": "실행",
+            "copy": "codex"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_로그인_및_실행_화면.png",
+      "goal": "ChatGPT 계정으로 로그인하고 Codex 실행 화면을 확인한다.",
+      "topics": [
+        "브라우저 연동 로그인 완료",
+        "Codex 메인 실행 화면 및 현재 폴더 확인"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_첫_대화_자기소개.png",
+      "goal": "Codex CLI에 '너는 누구니?'를 입력하고 응답을 확인한다.",
+      "topics": [
+        "첫 대화 질문 입력",
+        "Codex의 자기소개 및 역량 설명 확인"
+      ],
+      "practice": "Codex CLI 입력창에 '너는 누구니?'를 입력하고 응답을 확인한다.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "너는 누구니?"
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_자기소개서_생성.png",
+      "goal": "현재 폴더에 'gpt.txt'를 만들도록 요청한다.",
+      "topics": [
+        "파일 이름은 뒤에 있는 모델 이름으로 — Codex 는 GPT 을 씁니다",
+        "자연어 한 줄로 파일 생성 지시",
+        "이름이 다르니 세 결과가 한 폴더에 나란히 남는다"
+      ],
+      "practice": "현재 폴더에 'gpt.txt'를 만들어줘.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "현재 폴더에 'gpt.txt'를 만들어줘.\n네가 누구이고 무엇을 할 수 있는지 간단히 작성해줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_파일_생성_확인.png",
+      "goal": "VS Code 탐색기에서 Codex가 만든 gpt.txt를 확인한다.",
+      "topics": [
+        "에이전트1 폴더에 gpt.txt 생성 확인",
+        "내용 열람",
+        "앞선 에이전트의 파일은 그대로 남아 있다"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_introduce_폴더_생성.png",
+      "goal": "Codex에 introduce 폴더 생성을 요청한다.",
+      "topics": [
+        "이미 앞 에이전트가 만들어 둔 폴더다",
+        "에이전트가 \"이미 있습니다\"라고 답하면 그대로 넘어간다",
+        "있는 것을 다시 만들지 않는 것도 에이전트의 판단이다"
+      ],
+      "practice": "현재 폴더에 'introduce' 폴더 생성을 요청한다.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "현재 폴더에 'introduce' 폴더를 만들어줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_자기소개서_이동.png",
+      "goal": "gpt.txt를 introduce 폴더로 이동하도록 요청한다.",
+      "topics": [
+        "파일 이동 작업 자연어 지시",
+        "파일 경로 변경 확인"
+      ],
+      "practice": "'gpt.txt'를 'introduce' 폴더로 옮겨줘.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "'gpt.txt'를 'introduce' 폴더로 옮겨줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_최종_폴더_구조.png",
+      "goal": "에이전트1/introduce/gpt.txt 최종 트리 구조를 확인한다.",
+      "topics": [
+        "introduce 폴더 안에 gpt.txt 가 추가됐는지 확인",
+        "앞 에이전트의 파일과 나란히 쌓인다"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/codex_Ctrl_C_종료.png",
+      "goal": "Ctrl + C로 Codex CLI 입력을 종료하고 일반 터미널로 복귀한다.",
+      "topics": [
+        "Ctrl + C로 Codex CLI 종료",
+        "일반 터미널 프롬프트 복귀 확인"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_실행.png",
+      "goal": "Claude Code 버전을 확인하고 claude를 실행한다.",
+      "topics": [
+        "claude --version 버전 확인",
+        "claude 입력하여 CLI 실행",
+        "설치와 PATH 등록은 agy 가 이미 끝냈다"
+      ],
+      "practice": null,
+      "action": {
+        "label": "확인 및 실행",
+        "items": [
+          {
+            "desc": "버전 확인",
+            "copy": "claude --version"
+          },
+          {
+            "desc": "실행",
+            "copy": "claude"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_터미널_모양_선택.png",
+      "goal": "Claude Code 최초 실행 시 터미널 테마를 선택한다.",
+      "topics": [
+        "Dark / Light 테마 선택",
+        "방향키로 선택 후 엔터"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_로그인_방식_선택.png",
+      "goal": "Claude 구독 계정 또는 해당 로그인 방식을 선택한다.",
+      "topics": [
+        "Claude Pro / Team / Console 옵션 확인",
+        "해당 로그인 방식 선택"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_브라우저_권한_확인.png",
+      "goal": "브라우저에서 Claude 계정 권한을 확인하고 승인한다.",
+      "topics": [
+        "브라우저 승인 페이지 확인",
+        "계정 연동 승인(Authorize) 버튼 클릭"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_로그인_완료.png",
+      "goal": "Claude Code 로그인 완료 상태를 확인한다.",
+      "topics": [
+        "로그인 성공 메시지 확인",
+        "터미널로 자동 복귀"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_보안_안내.png",
+      "goal": "Claude Code의 보안 및 권한 모델 안내를 숙지한다.",
+      "topics": [
+        "명령 실행 권한 및 보안 안내",
+        "프롬프트 인젝션 및 실수 주의사항"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_터미널_입력_설정.png",
+      "goal": "권장 터미널 입력 설정을 적용한다.",
+      "topics": [
+        "터미널 입력 및 단축키 모드 설정",
+        "권장 기본값 선택 후 완료"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_작업_폴더_신뢰.png",
+      "goal": "에이전트1 작업 폴더에 대한 신뢰 권한을 부여한다.",
+      "topics": [
+        "작업 디렉토리 접근 권한 확인",
+        "폴더 신뢰 허용"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_실행_화면.png",
+      "goal": "Claude Code 실행 화면과 대화형 입력창을 확인한다.",
+      "topics": [
+        "모델 및 버전 정보 확인",
+        "현재 작업 경로 확인",
+        "대화형 프롬프트 입력창 위치"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_기본_세팅.png",
+      "goal": "모델을 Sonnet 으로 고정하고 /ide 에서 none 을 골라 VS Code 연동을 끊는다.",
+      "topics": [
+        "슬래시(/)로 시작하면 대화가 아니라 설정 명령이다",
+        "/model sonnet — 실습에는 Sonnet 이면 충분하다",
+        "/ide 를 치면 Select IDE 목록이 뜬다 — 2. None 을 방향키로 고르고 Enter",
+        "연동을 끊고 터미널만으로 진행한다"
+      ],
+      "practice": "두 명령을 차례로 실행하고, /ide 목록에서 2. None 을 고른다.",
+      "action": {
+        "label": "기본 세팅 두 가지",
+        "items": [
+          {
+            "desc": "① 모델 정하기",
+            "copy": "/model sonnet"
+          },
+          {
+            "desc": "② 연동 끊기 — 목록에서 2. None 선택",
+            "copy": "/ide"
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_첫_대화_자기소개.png",
+      "goal": "Claude Code에 '너는 누구니?'를 입력하고 응답을 확인한다.",
+      "topics": [
+        "첫 대화 질문 입력",
+        "Claude의 자기소개 및 특징 확인"
+      ],
+      "practice": "Claude Code 입력창에 '너는 누구니?'를 입력하고 응답을 확인한다.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "너는 누구니?"
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_자기소개서_생성.png",
+      "goal": "현재 폴더에 'claude.txt'를 만들도록 요청한다.",
+      "topics": [
+        "파일 이름은 뒤에 있는 모델 이름으로 — Claude Code 는 Claude 을 씁니다",
+        "자연어 한 줄로 파일 생성 지시",
+        "이름이 다르니 세 결과가 한 폴더에 나란히 남는다"
+      ],
+      "practice": "현재 폴더에 'claude.txt'를 만들어줘.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "현재 폴더에 'claude.txt'를 만들어줘.\n네가 누구이고 무엇을 할 수 있는지 간단히 작성해줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_파일_생성_확인.png",
+      "goal": "VS Code 탐색기에서 Claude Code가 만든 claude.txt를 확인한다.",
+      "topics": [
+        "에이전트1 폴더에 claude.txt 생성 확인",
+        "내용 열람",
+        "앞선 에이전트의 파일은 그대로 남아 있다"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_introduce_폴더_생성.png",
+      "goal": "Claude Code에 introduce 폴더 생성을 요청한다.",
+      "topics": [
+        "이미 앞 에이전트가 만들어 둔 폴더다",
+        "에이전트가 \"이미 있습니다\"라고 답하면 그대로 넘어간다",
+        "있는 것을 다시 만들지 않는 것도 에이전트의 판단이다"
+      ],
+      "practice": "현재 폴더에 'introduce' 폴더 생성을 요청한다.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "현재 폴더에 'introduce' 폴더를 만들어줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_자기소개서_이동.png",
+      "goal": "claude.txt를 introduce 폴더로 이동하도록 요청한다.",
+      "topics": [
+        "파일 이동 작업 자연어 지시",
+        "파일 경로 변경 확인"
+      ],
+      "practice": "'claude.txt'를 'introduce' 폴더로 옮겨줘.",
+      "action": {
+        "label": "프롬프트 복사",
+        "copy": "'claude.txt'를 'introduce' 폴더로 옮겨줘."
+      }
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_최종_폴더_구조.png",
+      "goal": "에이전트1/introduce/claude.txt 최종 트리 구조를 확인한다.",
+      "topics": [
+        "introduce 폴더 안에 claude.txt 가 추가됐는지 확인",
+        "앞 에이전트의 파일과 나란히 쌓인다"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_Ctrl_C_종료.png",
+      "goal": "Ctrl + C로 Claude Code를 종료하고 일반 터미널로 복귀한다.",
+      "topics": [
+        "Ctrl + C로 Claude Code CLI 종료",
+        "세션 종료 확인"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/claude_일반_터미널_복귀.png",
+      "goal": "일반 터미널 프롬프트로 완전히 복귀했음을 확인한다.",
+      "topics": [
+        "일반 터미널 프롬프트 복귀 확인",
+        "3대 CLI 실습 모두 완수"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/세_에이전트_결과_비교.png",
+      "goal": "한 폴더에 나란히 쌓인 세 파일을 열어 에이전트별 차이를 비교한다.",
+      "topics": [
+        "에이전트1/introduce 안의 gemini.txt · gpt.txt · claude.txt 를 나란히 연다",
+        "같은 프롬프트에 대한 문체·길이·설명 방식의 차이",
+        "도구 실행 권한을 묻는 방식의 차이"
+      ],
+      "practice": "세 파일을 모두 열어 같은 요청에 대한 답이 어떻게 다른지 비교한다.",
+      "action": null
+    },
+    {
+      "imagePath": "assets/basic/step01/Step1_완료.png",
+      "goal": "Step 1의 모든 학습 목표(설치, 로그인, 파일 작업, CLI 전환)를 완수했음을 점검한다.",
+      "topics": [
+        "VS Code 터미널 제어 숙달",
+        "3대 CLI(Antigravity·Codex·Claude) 설치 및 로그인 완료",
+        "공통 4단계 파일 조작 실습 완료",
+        "일반 터미널과 AI CLI 상태 구분 능력 확보"
+      ],
+      "practice": null,
+      "action": null
+    }
+  ]
+}

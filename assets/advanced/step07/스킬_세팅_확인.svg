@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect x="60" y="44" width="78" height="24" rx="12" fill="#2563eb"/>
+  <text x="99" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.05em">ADV 07</text>
+  <text x="60" y="130" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="40" font-weight="700" fill="#171717">스킬 세팅 확인</text>
+  <text x="60" y="178" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#6b7280">Step3 · Step4에서 만든 스킬 2개를 확인하고, 세 번째는 오늘 직접 만듭니다</text>
+  <line x1="60" y1="212" x2="1220" y2="212" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="254" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="600" fill="#9ca3af" letter-spacing="0.08em">.claude/skills/ — 선행 스킬 2개 + 오늘 만들 스킬 1개</text>
+  <rect x="60" y="268" width="355" height="252" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="80" y="302" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="16" font-weight="700" fill="#1e40af">gws_skill.md</text>
+  <text x="80" y="326" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#6b7280">Step3 GWS CLI에서 생성</text>
+  <line x1="60" y1="340" x2="415" y2="340" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="80" y="362" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#374151">GWS CLI 통합 스킬</text>
+  <text x="80" y="386" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#6b7280">gmail · calendar · sheets · drive</text>
+  <text x="80" y="410" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#374151">gws 명령어를 Claude가 자연어로</text>
+  <text x="80" y="432" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#374151">변환하여 실행합니다</text>
+  <text x="80" y="496" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#2563eb">Step3 완료 시 자동 생성됨</text>
+  <rect x="453" y="268" width="355" height="252" rx="10" fill="#fef3c7" stroke="#fde68a" stroke-width="1"/>
+  <text x="473" y="302" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="16" font-weight="700" fill="#92400e">naver-datalab.md</text>
+  <text x="473" y="326" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#6b7280">Step4 네이버 API에서 생성</text>
+  <line x1="453" y1="340" x2="808" y2="340" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="473" y="362" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#374151">네이버 API 스킬</text>
+  <text x="473" y="386" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#6b7280">네이버 데이터랩 검색 트렌드 조사</text>
+  <text x="473" y="410" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#374151">키워드 검색량 추이를 조회하고</text>
+  <text x="473" y="432" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#374151">결과를 정리합니다</text>
+  <text x="473" y="496" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#d97706">Step4 완료 시 자동 생성됨</text>
+  <rect x="846" y="268" width="374" height="252" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="866" y="302" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="16" font-weight="700" fill="#14532d">notion-work</text>
+  <text x="866" y="326" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#6b7280">오늘 5~6번 슬라이드에서 직접 생성</text>
+  <line x1="846" y1="340" x2="1220" y2="340" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="866" y="362" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#374151">Work DB CRUD + 라우팅 스킬</text>
+  <text x="866" y="386" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#6b7280">조회 · 생성 · 상태변경 · 메모기록</text>
+  <text x="866" y="410" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#374151">유형별 처리 절차는 reference/</text>
+  <text x="866" y="432" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#374151">문서로 분리합니다</text>
+  <text x="866" y="496" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" fill="#16a34a">아직 없음 — 오늘 만듭니다</text>
+  <rect x="60" y="568" width="1160" height="52" rx="10" fill="#eff6ff"/>
+  <text x="640" y="599" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#2563eb">앞의 두 개가 있는지 확인한 뒤, 세 번째는 오늘 직접 만듭니다</text>
+</svg>

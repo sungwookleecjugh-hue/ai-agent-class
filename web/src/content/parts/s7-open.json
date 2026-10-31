@@ -1,0 +1,20 @@
+{
+  "id": "s7-open",
+  "title": "시작",
+  "cover": false,
+  "slides": [
+    {
+      "id": "s7-open-01",
+      "template": "illustration",
+      "title": "7회차 스킬 · 라이브러리 · CLI · 플러그인",
+      "illustration": "/illustrations/s7-title.svg"
+    },
+    {
+      "id": "s7-open-02",
+      "template": "overview",
+      "title": "오늘의 순서",
+      "agenda": true,
+      "items": []
+    }
+  ]
+}

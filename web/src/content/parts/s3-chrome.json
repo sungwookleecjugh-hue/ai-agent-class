@@ -1,0 +1,577 @@
+{
+  "id": "s3-chrome",
+  "title": "CLAUDE IN CHROME",
+  "summary": "Claude in Chrome 확장을 설치하고 실제 브라우저를 조작해본다.",
+  "slides": [
+    {
+      "id": "s3-chrome-01",
+      "template": "compare",
+      "title": "웹서치가 못 보는 것",
+      "left": {
+        "label": "로그인이 필요한 콘텐츠",
+        "screen": {
+          "kind": "shot",
+          "src": "/illustrations/wall-login-news.svg"
+        }
+      },
+      "right": {
+        "label": "접속해야 로드되는 콘텐츠",
+        "screen": {
+          "kind": "shot",
+          "src": "/illustrations/wall-instagram.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "로그인이 필요한 콘텐츠",
+          "body": "회원 전용 기사는 로그인하지 않으면 첫 문단까지만 보여줍니다."
+        },
+        {
+          "n": 2,
+          "head": "접속해야 로드되는 콘텐츠",
+          "body": "인스타그램 게시물처럼 접속해야 불러와지는 콘텐츠는 브라우저에서 열어야만 내용이 표시됩니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-chrome-03",
+      "template": "screen",
+      "title": "Add to Chrome",
+      "screen": {
+        "kind": "shot",
+        "src": "/shots/chrome_소개_페이지.png"
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "소개 페이지 접속",
+          "body": "claude.com/claude-in-chrome 에 접속해서 이 확장이 어떤 역할을 하는지 확인해보세요."
+        },
+        {
+          "n": 2,
+          "head": "Add to Chrome 버튼",
+          "body": "Add to Chrome 버튼을 누르면 크롬 웹스토어 설치 페이지로 이동합니다."
+        }
+      ],
+      "action": {
+        "label": "페이지 열기",
+        "items": [
+          {
+            "kind": "link",
+            "href": "https://claude.com/claude-in-chrome",
+            "text": "claude.com/claude-in-chrome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-chrome-04",
+      "template": "screen",
+      "title": "확장 설치",
+      "screen": {
+        "kind": "shot",
+        "src": "/shots/chrome_웹스토어.png"
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "크롬 웹스토어 진입",
+          "body": "앞에서 Add to Chrome 을 클릭하면 이 웹스토어 페이지에 도착합니다."
+        },
+        {
+          "n": 2,
+          "head": "Chrome에 추가",
+          "body": "Chrome에 추가 버튼을 클릭하고, 이어서 뜨는 확인 팝업까지 승인해주세요."
+        }
+      ],
+      "action": {
+        "label": "페이지 열기",
+        "items": [
+          {
+            "kind": "link",
+            "href": "https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn",
+            "text": "크롬 웹스토어 · Claude"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-chrome-05",
+      "template": "screen",
+      "title": "확장 계정 연결 승인",
+      "screen": {
+        "kind": "shot",
+        "src": "/illustrations/chrome-authorize.svg"
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "승인 클릭",
+          "body": "승인을 클릭하면 Claude Code 와 같은 계정으로 확장이 연결됩니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-chrome-07",
+      "template": "screen",
+      "title": "--chrome 플래그",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "^C",
+              "badge": 1
+            },
+            {
+              "role": "user",
+              "text": "^C"
+            },
+            {
+              "role": "user",
+              "text": "claude --dangerously-skip-permissions",
+              "badge": 2
+            },
+            {
+              "role": "user",
+              "text": "claude --dangerously-skip-permissions --chrome",
+              "badge": 3
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "Ctrl+C 두 번",
+          "body": "Ctrl+C 를 두 번 눌러 지금 실행 중인 claude 세션을 완전히 종료해보세요."
+        },
+        {
+          "n": 2,
+          "head": "위쪽 방향키",
+          "body": "위쪽 방향키를 누르면 방금 입력했던 명령이 그대로 불러와집니다."
+        },
+        {
+          "n": 3,
+          "head": "--chrome 붙이고 실행",
+          "body": "불러온 명령 뒤에 --chrome 을 붙여서 확장과 연결된 세션을 실행하세요."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "claude --dangerously-skip-permissions --chrome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-chrome-08",
+      "template": "screen",
+      "title": "/chrome 연결 상태",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "noSidebar": true,
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/chrome",
+              "badge": 1
+            }
+          ],
+          "panel": {
+            "title": "Claude in Chrome",
+            "rows": [
+              {
+                "seg": [
+                  {
+                    "t": "Claude in Chrome works with the Chrome extension to let you control your browser directly from Claude Code.",
+                    "c": "dim"
+                  }
+                ]
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "Status: "
+                  },
+                  {
+                    "t": "Enabled",
+                    "c": "green"
+                  }
+                ],
+                "badge": 2
+              },
+              {
+                "seg": [
+                  {
+                    "t": "Extension: "
+                  },
+                  {
+                    "t": "Installed",
+                    "c": "green"
+                  }
+                ]
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "❯ Select browser…",
+                    "c": "accent"
+                  }
+                ]
+              },
+              {
+                "seg": [
+                  {
+                    "t": "  Manage permissions"
+                  }
+                ]
+              },
+              {
+                "seg": [
+                  {
+                    "t": "  Reconnect extension"
+                  }
+                ]
+              },
+              {
+                "seg": [
+                  {
+                    "t": "  Enabled by default: No"
+                  }
+                ]
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "Usage: claude --chrome or claude --no-chrome",
+                    "c": "dim"
+                  }
+                ]
+              },
+              {
+                "seg": [
+                  {
+                    "t": "Enter to confirm · Esc to cancel",
+                    "c": "dim"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/chrome 입력",
+          "body": "/chrome 을 입력하면 Claude in Chrome 의 연결 상태 화면이 나타납니다."
+        },
+        {
+          "n": 2,
+          "head": "초록색 Enabled · Installed",
+          "body": "Status 와 Extension 옆의 Enabled, Installed 글자가 초록색이면 정상적으로 연결된 상태입니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/chrome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-chrome-09",
+      "template": "compare",
+      "title": "설치 확인 페이지와 챌린지",
+      "notes": [
+        {
+          "n": 1,
+          "head": "설치 확인 페이지",
+          "body": "설치가 끝나면 claude.ai/chrome/installed 안내 페이지가 열립니다."
+        },
+        {
+          "n": 2,
+          "head": "아래쪽 챌린지",
+          "body": "화면 아래쪽 화살표를 눌러 챌린지 1번부터 3번까지 이동해보세요."
+        }
+      ],
+      "action": {
+        "label": "페이지 열기",
+        "items": [
+          {
+            "kind": "link",
+            "href": "https://claude.ai/chrome/installed",
+            "text": "claude.ai/chrome/installed"
+          }
+        ]
+      },
+      "left": {
+        "label": "claude.ai/chrome/installed",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/chrome_installed.png"
+        }
+      },
+      "right": {
+        "label": "챌린지 1",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/chrome_challenge1.png"
+        }
+      }
+    },
+    {
+      "id": "s3-chrome-10",
+      "template": "screen",
+      "title": "Claude 탭 그룹",
+      "notes": [
+        {
+          "n": 1,
+          "head": "파란 Claude 탭 그룹",
+          "body": "Claude 가 새로 연 탭은 파란 띠로 묶여 하나의 그룹으로 표시됩니다."
+        },
+        {
+          "n": 2,
+          "head": "내가 연 탭",
+          "body": "내가 직접 연 탭은 이 그룹 밖에 일반 탭으로 남아 있습니다."
+        }
+      ],
+      "screen": {
+        "kind": "shot",
+        "src": "/illustrations/chrome-tabgroup.svg"
+      }
+    },
+    {
+      "id": "s3-chrome-11",
+      "template": "compare",
+      "title": "챌린지 2번",
+      "notes": [
+        {
+          "n": 1,
+          "head": "챌린지 2번 요청",
+          "body": "액션박스에 있는 프롬프트를 복사해 붙여넣어보세요."
+        },
+        {
+          "n": 2,
+          "head": "방송장비 3개 선택",
+          "body": "Claude 가 마이크, 헤드폰, 웹캠 세 가지에 체크 표시를 남깁니다."
+        }
+      ],
+      "left": {
+        "label": "크롬",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/chrome_challenge2_done.png"
+        }
+      },
+      "right": {
+        "label": "VS Code 터미널",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [],
+          "noSidebar": true,
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "그러면 아래로 내려서 챌린지 위치를 찾고 우측버튼을 눌러서 챌린지 2번을 풀어줘. 방송장비 3개를 골라봐",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Claude in Chrome · scroll(챌린지 영역)"
+              },
+              {
+                "role": "tool",
+                "text": "Claude in Chrome · click(다음 챌린지 →)"
+              },
+              {
+                "role": "tool",
+                "text": "Claude in Chrome · click(마이크 +, 헤드폰 +, 웹캠 +)"
+              },
+              {
+                "role": "assistant",
+                "text": "마이크, 헤드폰, 웹캠 3개를 장바구니에 담았어요.",
+                "badge": 2
+              }
+            ]
+          }
+        }
+      },
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "그러면 아래로 내려서 챌린지 위치를 찾고 우측버튼을 눌러서 챌린지 2번을 풀어줘. 방송장비 3개를 골라봐"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-chrome-12",
+      "template": "compare",
+      "title": "챌린지 3번",
+      "notes": [
+        {
+          "n": 1,
+          "head": "챌린지 3번 요청",
+          "body": "액션박스에 있는 프롬프트를 복사해 붙여넣어보세요."
+        },
+        {
+          "n": 2,
+          "head": "예약 양식 자동 입력",
+          "body": "Claude 가 예약 양식의 이름, 인원, 요일, 시간까지 자동으로 채워줍니다."
+        }
+      ],
+      "left": {
+        "label": "크롬",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/chrome_challenge3_done.png"
+        }
+      },
+      "right": {
+        "label": "VS Code 터미널",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [],
+          "noSidebar": true,
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "이번에는 챌린지 3번으로 넘어가서 풀어봐",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Claude in Chrome · click(다음 챌린지 →)"
+              },
+              {
+                "role": "tool",
+                "text": "Claude in Chrome · form_input(예약자명, 인원 수, 일, 시간)"
+              },
+              {
+                "role": "tool",
+                "text": "Claude in Chrome · click(채식주의자)"
+              },
+              {
+                "role": "assistant",
+                "text": "홍길동 이름으로 3명, 화요일 오후 6:30 예약을 채웠어요.",
+                "badge": 2
+              }
+            ]
+          }
+        }
+      },
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "이번에는 챌린지 3번으로 넘어가서 풀어봐"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-chrome-13",
+      "template": "screen",
+      "title": "Gmail 계정 확인",
+      "notes": [
+        {
+          "n": 1,
+          "head": "로그인된 계정 이메일",
+          "body": "Claude 가 Gmail 을 열어 지금 로그인된 계정명을 확인해줍니다."
+        },
+        {
+          "n": 2,
+          "head": "오른쪽 위 프로필",
+          "body": "화면 오른쪽 위 프로필 아이콘을 눌러 계정 정보를 확인해보세요."
+        }
+      ],
+      "screen": {
+        "kind": "shot",
+        "src": "/illustrations/gmail-account.svg"
+      },
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "gmail.com 접속해서 현재 로그인된 계정명 확인해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-chrome-14",
+      "template": "screen",
+      "title": "나에게 보내기",
+      "notes": [
+        {
+          "n": 1,
+          "head": "편지쓰기",
+          "body": "Claude 가 편지쓰기 버튼을 클릭합니다."
+        },
+        {
+          "n": 2,
+          "head": "제목 나에게보내기테스트",
+          "body": "받는 사람은 내 계정으로, 내용은 Claude 가 직접 작성합니다."
+        },
+        {
+          "n": 3,
+          "head": "보내기",
+          "body": "보내기를 누르고 받은편지함에 메일이 도착하면 실습이 끝난 것입니다."
+        }
+      ],
+      "screen": {
+        "kind": "shot",
+        "src": "/illustrations/gmail-compose.svg"
+      },
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "편지쓰기 버튼 눌러서 나에게 보내기로 너가 하고싶은 말을 적고 나에게보내기테스트라는 제목으로 편지를 발송해줘"
+          }
+        ]
+      }
+    }
+  ]
+}

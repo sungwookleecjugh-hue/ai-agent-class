@@ -1,0 +1,20 @@
+{
+  "id": "s8-open",
+  "title": "시작",
+  "cover": false,
+  "slides": [
+    {
+      "id": "s8-open-01",
+      "template": "illustration",
+      "title": "8회차 GitHub · Claude 데스크톱 · 클라우드 세션",
+      "illustration": "/illustrations/s8-title.svg"
+    },
+    {
+      "id": "s8-open-02",
+      "template": "overview",
+      "title": "오늘의 순서",
+      "agenda": true,
+      "items": []
+    }
+  ]
+}

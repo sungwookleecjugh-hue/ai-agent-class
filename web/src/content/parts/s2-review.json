@@ -1,0 +1,536 @@
+{
+  "id": "s2-review",
+  "title": "지난 시간 복습",
+  "summary": "1회차에서 마친 세팅을 agent1 폴더로 한 번 더 따라 해 오늘 실습 준비를 마친다.",
+  "slides": [
+    {
+      "id": "s2-review-01",
+      "template": "screen",
+      "title": "Claude 에이전트 메모리와 파일/폴더 제어",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "placeholder": "터미널을 열고 claude 를 입력해 시작하세요"
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "CLAUDE.md",
+          "body": "CLAUDE.md 파일로 에이전트에게 이름과 성격을 부여할 수 있습니다."
+        },
+        {
+          "n": 2,
+          "head": "Read, Write, Edit",
+          "body": "Read, Write, Edit 툴로 파일을 읽고, 새로 만들고, 수정할 수 있습니다."
+        },
+        {
+          "n": 3,
+          "head": "Bash",
+          "body": "Bash 툴로 폴더를 만들거나 복사하고 이름을 바꾸고 프로그램을 실행할 수 있습니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-review-02",
+      "template": "screen",
+      "title": "지난 시간에 한 것",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": "agent1",
+            "folder": true,
+            "active": true
+          }
+        ],
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "VS Code 설치",
+          "body": "편집기인 VS Code를 설치하고 한글이 잘 보이도록 환경을 설정했습니다."
+        },
+        {
+          "n": 2,
+          "head": "작업 폴더",
+          "body": "작업할 폴더를 새로 만들고 VS Code로 그 폴더를 열었습니다."
+        },
+        {
+          "n": 3,
+          "head": "터미널",
+          "body": "Ctrl+J로 터미널을 열어 오른쪽에 배치했습니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-review-03",
+      "template": "illustration",
+      "title": "agent1 폴더 만들기",
+      "notes": [
+        {
+          "n": 1,
+          "head": "우클릭 메뉴에서 새 폴더",
+          "body": "바탕화면의 빈 곳에서 마우스 오른쪽 버튼을 클릭해보세요."
+        },
+        {
+          "n": 2,
+          "head": "이름 agent1 입력 후 Enter",
+          "body": "나온 메뉴에서 새 폴더를 선택하고 이름을 agent1로 입력한 다음 Enter를 눌러보세요. 오늘 실습 내내 이 폴더 하나만 사용합니다."
+        }
+      ],
+      "illustration": "/illustrations/explorer-new-folder.svg"
+    },
+    {
+      "id": "s2-review-04",
+      "template": "screen",
+      "title": "작업 폴더 열기",
+      "notes": [
+        {
+          "n": 1,
+          "head": "File → Open Folder",
+          "body": "VS Code 메뉴에서 File을 누르고 폴더 열기를 클릭해보세요."
+        },
+        {
+          "n": 2,
+          "head": "agent1 선택 후 폴더 선택",
+          "body": "대화상자에서 agent1 폴더를 선택하고 폴더 선택 버튼을 눌러보세요."
+        }
+      ],
+      "screen": {
+        "kind": "vscode",
+        "folder": "Visual Studio Code",
+        "files": [],
+        "noTerminal": true,
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        },
+        "menu": {
+          "at": "file",
+          "items": [
+            {
+              "label": "새 텍스트 파일",
+              "shortcut": "Ctrl+N"
+            },
+            {
+              "label": "새 창",
+              "shortcut": "Ctrl+Shift+N"
+            },
+            {
+              "label": "-"
+            },
+            {
+              "label": "파일 열기...",
+              "shortcut": "Ctrl+O"
+            },
+            {
+              "label": "폴더 열기...",
+              "shortcut": "Ctrl+K Ctrl+O",
+              "active": true,
+              "badge": 1
+            },
+            {
+              "label": "최근 항목 열기"
+            }
+          ]
+        },
+        "dialog": {
+          "title": "폴더 열기",
+          "path": "C:\\Users\\student\\Desktop",
+          "folders": [
+            {
+              "name": "agent1",
+              "selected": true
+            },
+            {
+              "name": "사진"
+            },
+            {
+              "name": "문서"
+            }
+          ],
+          "button": "폴더 선택",
+          "badge": 2
+        }
+      }
+    },
+    {
+      "id": "s2-review-05",
+      "template": "screen",
+      "title": "Ctrl+J 로 터미널 열기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminalAt": "bottom",
+        "chatPanel": {
+          "closeBadge": 1
+        },
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        },
+        "keycap": {
+          "keys": [
+            "Ctrl",
+            "J"
+          ],
+          "badge": 2
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "채팅 창의 X 눌러 닫기",
+          "body": "오른쪽에 열려 있는 채팅 패널의 X를 눌러 닫아보세요."
+        },
+        {
+          "n": 2,
+          "head": "Ctrl + J 로 터미널 열기",
+          "body": "Ctrl과 J를 함께 눌러 하단에 터미널 패널을 열어보세요."
+        }
+      ]
+    },
+    {
+      "id": "s2-review-06",
+      "template": "screen",
+      "title": "터미널 패널 오른쪽 배치",
+      "notes": [
+        {
+          "n": 1,
+          "head": "터미널 탭 글자 우클릭",
+          "body": "터미널 탭에 있는 터미널 글자를 마우스 오른쪽 버튼으로 클릭해보세요."
+        },
+        {
+          "n": 2,
+          "head": "패널 위치 → 오른쪽",
+          "body": "나온 메뉴에서 패널 위치를 오른쪽으로 선택하면 이후 실습은 계속 오른쪽 패널에서 진행됩니다."
+        }
+      ],
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminalAt": "bottom",
+        "terminalTabBadge": 1,
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        },
+        "menu": {
+          "at": "terminal-tab",
+          "items": [
+            {
+              "label": "터미널 이동"
+            },
+            {
+              "label": "패널 위치",
+              "active": true,
+              "sub": [
+                {
+                  "label": "위쪽"
+                },
+                {
+                  "label": "아래쪽"
+                },
+                {
+                  "label": "왼쪽"
+                },
+                {
+                  "label": "오른쪽",
+                  "active": true,
+                  "badge": 2
+                }
+              ]
+            },
+            {
+              "label": "-"
+            },
+            {
+              "label": "패널 숨기기"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "s2-review-07",
+      "template": "screen",
+      "title": "Claude Code 설치",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "irm https://claude.ai/install.ps1 | iex",
+              "badge": 1
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "설치 명령어 입력 후 Enter",
+          "body": "터미널에 irm https://claude.ai/install.ps1 | iex 를 입력하고 Enter를 눌러보세요."
+        },
+        {
+          "n": "!",
+          "head": "설치 완료 대기",
+          "body": "설치 로그가 지나가고 오류 없이 프롬프트가 다시 나타날 때까지 기다려보세요."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "irm https://claude.ai/install.ps1 | iex"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-review-08",
+      "template": "screen",
+      "title": "설치 확인",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "claude --version",
+              "badge": 1
+            },
+            {
+              "role": "tool",
+              "text": "✓ claude 사용 가능 — 2.1.274 (Claude Code)",
+              "badge": 2
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "claude --version 입력",
+          "body": "터미널에 claude --version을 입력해보세요."
+        },
+        {
+          "n": 2,
+          "head": "안 나오면 VS Code 재시작",
+          "body": "버전 숫자가 나오면 설치가 끝난 것이고, 안 나오면 VS Code를 완전히 종료했다가 다시 실행해보세요."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "claude --version"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-review-09",
+      "template": "screen",
+      "title": "claude 실행",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "claude",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "claude 입력 후 Enter",
+          "body": "터미널에 claude를 입력하고 Enter를 눌러 Claude Code를 실행해보세요."
+        },
+        {
+          "n": 2,
+          "head": "실행 성공 확인",
+          "body": "실행에 성공하면 Welcome to Claude Code! 라는 박스가 나타납니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "claude"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-review-10",
+      "template": "screen",
+      "title": "/login 으로 다시 로그인",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "/login",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/login 입력 후 Enter",
+          "body": "터미널에 /login을 입력하고 Enter를 누르면 브라우저가 열리며 계정으로 다시 로그인할 수 있습니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-review-12",
+      "template": "screen",
+      "title": "/model sonnet 입력",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/model sonnet",
+              "badge": 1
+            },
+            {
+              "role": "assistant",
+              "text": "Sonnet 모델로 전환했어요.",
+              "badge": 2
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/model sonnet 입력",
+          "body": "터미널에 /model sonnet을 입력해보세요. 오늘 실습에는 Sonnet 모델이면 충분하고 속도도 빠릅니다."
+        },
+        {
+          "n": 2,
+          "head": "전환 확인",
+          "body": "Sonnet 모델로 전환했다는 답변이 나오는지 확인해보세요."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/model sonnet"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-review-13",
+      "template": "screen",
+      "title": "/ide 로 연동 끊기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/ide"
+            },
+            {
+              "role": "tool",
+              "text": "vscode (연결됨)",
+              "badge": 1
+            },
+            {
+              "role": "tool",
+              "text": "❯ none",
+              "badge": 2
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "vscode 연결 상태 표시",
+          "body": "/ide를 입력하면 vscode가 이미 연결됨 상태로 표시됩니다."
+        },
+        {
+          "n": 2,
+          "head": "아래 방향키로 none 선택 후 Enter",
+          "body": "아래 방향키로 none을 선택하고 Enter를 눌러 vscode 연결을 해제해보세요."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/ide"
+          }
+        ]
+      }
+    }
+  ]
+}

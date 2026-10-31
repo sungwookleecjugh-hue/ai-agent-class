@@ -1,0 +1,614 @@
+{
+  "id": "s3-permission",
+  "title": "권한 모드",
+  "summary": "Shift+Tab 권한 모드 4단과 bypass 모드의 차이를 실습으로 확인한다.",
+  "slides": [
+    {
+      "id": "s3-permission-01",
+      "template": "table",
+      "title": "Shift+Tab 모드 순환",
+      "columns": ["모드", "편집", "명령 실행", "특징"],
+      "rows": [
+        {
+          "cells": ["manual mode", "권한요청", "권한요청", "편집 전 확인"]
+        },
+        {
+          "cells": ["accept edits", "허용", "권한요청", "명령만 확인"]
+        },
+        {
+          "cells": ["plan mode", "차단", "조사만", "편집 차단"]
+        },
+        {
+          "cells": ["auto mode", "허용", "허용", "감시자 판정"]
+        },
+        {
+          "cells": ["bypass 모드", "허용", "허용", "순환 밖 · 실행 옵션"],
+          "highlight": true
+        }
+      ],
+      "notes": [
+        {
+          "n": 1,
+          "head": "Shift+Tab 으로 순환",
+          "body": "Shift+Tab 을 누를 때마다 manual mode, accept edits, plan mode, auto mode 순서로 바뀝니다."
+        },
+        {
+          "n": "!",
+          "head": "bypass 는 순환 밖",
+          "body": "Shift+Tab 순환은 4단계뿐이고, bypass 모드는 이 순환에 포함되지 않고 별도의 실행 옵션으로 켭니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-permission-02",
+      "template": "table",
+      "title": "모드별 허용 범위",
+      "columns": [
+        "모드",
+        "read",
+        "write",
+        "edit",
+        "bash"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "manual mode",
+            "허용",
+            "권한요청",
+            "권한요청",
+            "권한요청"
+          ]
+        },
+        {
+          "cells": [
+            "accept edits",
+            "허용",
+            "허용",
+            "허용",
+            "권한요청"
+          ]
+        },
+        {
+          "cells": [
+            "auto mode",
+            "허용",
+            "허용",
+            "허용",
+            "허용"
+          ]
+        },
+        {
+          "cells": [
+            "bypass permissions",
+            "허용",
+            "허용",
+            "허용",
+            "허용"
+          ],
+          "highlight": true
+        }
+      ],
+      "notes": [
+        {
+          "n": 1,
+          "head": "허용 · 권한요청 두 가지",
+          "body": "허용으로 표시된 항목은 바로 실행되고, 권한요청으로 표시된 항목은 실행 전에 확인을 받습니다."
+        },
+        {
+          "n": 2,
+          "head": "bash 는 auto mode 부터 허용",
+          "body": "bash 는 auto mode 부터 허용되고, 그 전 모드에서는 명령을 실행할 때마다 매번 확인을 받습니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-permission-03",
+      "template": "screen",
+      "title": "auto 모드 · 감시자",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "새 실습 폴더를 정리해줘",
+              "badge": 1
+            }
+          ],
+          "input": {
+            "placeholder": "auto 모드에서는 계속 진행한다"
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "확인 없이 계속 진행",
+          "body": "auto 모드에서는 요청할 때마다 확인 없이 작업이 계속 진행됩니다."
+        },
+        {
+          "n": 2,
+          "head": "뒤에서 지켜보는 감시자",
+          "body": "뒤에서 감시자가 지켜보다가 위험해 보이는 작업은 실행 전에 멈춥니다."
+        },
+        {
+          "n": "!",
+          "head": "리스크",
+          "body": "같은 요청이라도 감시자 판단에 따라 통과되거나 차단될 수 있습니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "새 실습 폴더를 정리해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-permission-04",
+      "template": "screen",
+      "title": "삭제 금지 해제 요청",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true,
+            "active": true
+          },
+          {
+            "name": "settings.json",
+            "depth": 1
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "삭제 금지 명령어들을 모두 지워줘",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "같은 요청, auto 모드로",
+          "body": "settings.json 의 deny 규칙을 지워달라는 요청은 안전장치를 되돌리는 위험한 요청입니다."
+        },
+        {
+          "n": "!",
+          "head": "auto 는 매번 확인하지 않음",
+          "body": "auto 모드는 매번 확인 창을 띄우지 않고 감시자의 판정에만 의존합니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "삭제 금지 명령어들을 모두 지워줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-permission-05",
+      "template": "compare",
+      "title": "감시자 판정 비교",
+      "left": {
+        "label": "막힌 경우",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "삭제 금지 명령어들을 모두 지워줘"
+              },
+              {
+                "role": "tool",
+                "text": "Edit(.claude\\settings.json)"
+              },
+              {
+                "role": "assistant",
+                "text": "Denied by auto mode classifier",
+                "badge": 1
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "통과한 경우",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "삭제 금지 명령어들을 모두 지워줘"
+              },
+              {
+                "role": "tool",
+                "text": "Edit(.claude\\settings.json)"
+              },
+              {
+                "role": "assistant",
+                "text": "settings.json 의 deny 목록을 비웠어요.",
+                "badge": 2
+              }
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "막힌 경우",
+          "body": "감시자가 위험하다고 판단하면 Denied by auto mode classifier 라는 메시지와 함께 실행이 막힙니다."
+        },
+        {
+          "n": 2,
+          "head": "통과한 경우",
+          "body": "같은 요청이라도 감시자를 통과하면 확인 없이 끝까지 실행됩니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-permission-07",
+      "template": "screen",
+      "title": "bypass 모드 실행",
+      "screen": {
+        "kind": "terminal",
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "claude --dangerously-skip-permissions"
+            }
+          ],
+          "panel": {
+            "title": "",
+            "tone": "danger",
+            "rows": [
+              {
+                "seg": [
+                  {
+                    "t": "WARNING: Claude Code running in Bypass Permissions mode",
+                    "c": "red"
+                  }
+                ],
+                "badge": 1
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "In Bypass Permissions mode, Claude Code will not ask for your approval before running potentially dangerous commands."
+                  }
+                ]
+              },
+              {
+                "seg": [
+                  {
+                    "t": "This mode should only be used in a sandboxed container/VM that has restricted internet access and can easily be restored if damaged."
+                  }
+                ]
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "By proceeding, you accept all responsibility for actions taken while running in Bypass Permissions mode."
+                  }
+                ]
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "https://code.claude.com/docs/en/security",
+                    "c": "dim"
+                  }
+                ]
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "  1. No, exit"
+                  }
+                ]
+              },
+              {
+                "seg": [
+                  {
+                    "t": "❯ 2. Yes, I accept",
+                    "c": "accent"
+                  }
+                ],
+                "badge": 2
+              },
+              {
+                "seg": []
+              },
+              {
+                "seg": [
+                  {
+                    "t": "Enter to confirm · Esc to exit",
+                    "c": "dim"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "빨간 WARNING 안내",
+          "body": "빨간 WARNING 문구는 이제부터 권한 확인 없이 명령이 실행된다는 경고입니다."
+        },
+        {
+          "n": 2,
+          "head": "2. Yes, I accept",
+          "body": "↓ 키로 2. Yes, I accept 를 고르고 Enter 를 눌러보세요."
+        },
+        {
+          "n": "!",
+          "head": "실습 폴더에서만",
+          "body": "bypass 모드는 인터넷이 없는 격리된 실습 폴더에서만 쓰는 것을 권장합니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "claude --dangerously-skip-permissions"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-permission-09",
+      "template": "screen",
+      "title": "금지 해제 + 파일 삭제",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "settings.json",
+            "depth": 1
+          },
+          {
+            "name": "test.txt",
+            "active": true
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "삭제 금지 설정을 다 풀고 test.txt 파일을 삭제해줘",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "두 가지를 한 번에 요청",
+          "body": "삭제 금지 해제와 test.txt 삭제를 한 문장에 담아 동시에 요청해보세요."
+        },
+        {
+          "n": "!",
+          "head": "확인 창 없음",
+          "body": "bypass 모드이기 때문에 확인 창 없이 두 작업이 그대로 진행됩니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "삭제 금지 설정을 다 풀고 test.txt 파일을 삭제해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-permission-10",
+      "template": "screen",
+      "title": "삭제 완료",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "settings.json",
+            "depth": 1
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "삭제 금지 설정을 다 풀고 test.txt 파일을 삭제해줘"
+            },
+            {
+              "role": "assistant",
+              "text": "settings.json 의 deny 규칙을 비우고 test.txt 를 삭제했어요."
+            }
+          ],
+          "input": {
+            "placeholder": "메시지를 입력하세요..."
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "test.txt 사라짐",
+          "body": "test.txt 가 확인 없이 즉시 삭제되어 탐색기에서도 사라집니다."
+        },
+        {
+          "n": 2,
+          "head": "설정도 같이 해제",
+          "body": "deny 목록도 함께 비워져서 다음 삭제 요청도 그대로 통과합니다."
+        },
+        {
+          "n": "!",
+          "head": "되돌릴 수 없음",
+          "body": "이렇게 지워진 파일은 휴지통에도 남지 않으니 실습 폴더에서만 시도해야 합니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-permission-11",
+      "template": "compare",
+      "title": "/exit · Ctrl+C 두 번",
+      "left": {
+        "label": "방법 1 — 명령으로",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [],
+            "input": {
+              "text": "/exit",
+              "badge": 1
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "방법 2 — Ctrl+C 두 번",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "tool",
+                "text": "Press Ctrl-C again to exit",
+                "badge": 2
+              }
+            ],
+            "input": {
+              "placeholder": "여기서 Ctrl+C"
+            }
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/exit 한 번에 종료",
+          "body": "/exit 를 입력하면 확인 없이 바로 세션이 종료됩니다."
+        },
+        {
+          "n": 2,
+          "head": "Ctrl+C 두 번 눌러야 종료",
+          "body": "Ctrl+C 는 한 번 누르면 안내만 뜨고, 약 0.8초 안에 두 번째로 눌러야 진짜로 종료됩니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/exit"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-permission-12",
+      "template": "screen",
+      "title": "방향키 ↑ 로 이전 명령어",
+      "notes": [
+        {
+          "n": 1,
+          "head": "방향키 ↑",
+          "body": "방향키 ↑ 를 누르면 직전에 썼던 명령어가 그대로 불러와집니다."
+        },
+        {
+          "n": 2,
+          "head": "Enter 로 다시 실행",
+          "body": "그대로 Enter 를 누르면 명령어를 다시 입력할 필요 없이 실행됩니다."
+        }
+      ],
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "test.txt"
+          }
+        ],
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "claude --dangerously-skip-permissions",
+              "badge": 2
+            }
+          ]
+        },
+        "keycap": {
+          "keys": [
+            "↑"
+          ],
+          "badge": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect x="60" y="44" width="78" height="24" rx="12" fill="#2563eb"/>
+  <text x="99" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.05em">ADV 04</text>
+  <text x="60" y="130" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="40" font-weight="700" fill="#171717">외부 API로 AI 기능 확장하기</text>
+  <text x="60" y="178" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#6b7280">API 키 발급부터 Skill 제작까지 — 네이버 · 타입캐스트 · 공개 API 연결</text>
+  <line x1="60" y1="212" x2="1220" y2="212" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="264" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="600" fill="#9ca3af" letter-spacing="0.08em">TODAY</text>
+  <text x="60" y="308" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">API 키 발급, 왜 두려워할 필요가 없나?</text>
+  <text x="60" y="350" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">네이버 오픈 API  —  소개 · 종류 · 등록 · Skill 제작</text>
+  <text x="60" y="392" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">타입캐스트 TTS API  —  소개 · 키 발급 · voice_id · Skill 제작</text>
+  <text x="60" y="434" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">public-apis-4Kr  —  원하는 API 직접 골라서 연결하기</text>
+  <rect x="60" y="568" width="1160" height="52" rx="10" fill="#eff6ff"/>
+  <text x="640" y="599" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" fill="#2563eb">카드 등록 없이 발급 가능한 API만 사용합니다</text>
+</svg>

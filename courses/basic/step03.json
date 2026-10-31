@@ -1,0 +1,216 @@
+{
+  "step": 3,
+  "title": "Claude Code 환경 설정과 기본 명령어",
+  "hours": "2시간",
+  "goal": "Claude Code의 보안 설정을 이해하고, 권한 모드·욜로 모드·모델 선택·주요 명령어를 실습을 통해 익힌다.",
+  "topics": [
+    "Claude 개인정보 보안 설정",
+    "settings.json (파일 삭제 금지)",
+    "권한 모드 (일반·편집자동승인·플랜)",
+    "욜로 모드 / /model 모델 선택",
+    "주요 슬래시 명령어",
+    "웹 Search 툴 / Claude in Chrome"
+  ],
+  "practice": "개인 환경에 맞는 보안 설정을 직접 구성하고, 권한 모드와 주요 명령어를 순서대로 실행해본다.",
+  "slides": [
+    {
+      "imagePath": "assets/basic/step03/s3_오늘의_흐름.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/account_설정_진입.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/account_privacy_화면.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/account_privacy_off.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/account_billing_화면.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/account_billing_인보이스.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/account_usage_화면.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/account_usage_개념.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_란.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_항목.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_요청.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_결과.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_clear.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_차단_요청.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_차단_결과.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/settings_생성_경로.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_shift_tab.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_표.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_auto_란.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_auto_요청.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_auto_결과_A.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_auto_결과_B.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_bypass_란.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_bypass_실행.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_bypass_요청.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_bypass_결과.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_종료.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/perm_방향키.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/config_란.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/config_항목표.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/config_language.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/status_실습.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/status_login.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/usage_실습.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/model_선택_화면.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/model_스펙트럼.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/web_할루시네이션.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/web_툴_란.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/web_요청.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/web_결과.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_웹서치_한계.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_란.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_소개_페이지.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_웹스토어.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_로그인.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_재시작.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_flag.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_패널.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_실습1.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_탭그룹.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_챌린지2.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_챌린지3.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_gmail_접속.png"
+    },
+    {
+      "imagePath": "assets/basic/step03/chrome_gmail_발송.png"
+    }
+  ],
+  "parts": [
+    {
+      "title": "claude 설정",
+      "from": 1,
+      "to": 8
+    },
+    {
+      "title": "settings.json",
+      "from": 9,
+      "to": 16
+    },
+    {
+      "title": "권한 모드",
+      "from": 17,
+      "to": 28
+    },
+    {
+      "title": "/config",
+      "from": 29,
+      "to": 34
+    },
+    {
+      "title": "/model",
+      "from": 35,
+      "to": 36
+    },
+    {
+      "title": "웹서치 툴",
+      "from": 37,
+      "to": 40
+    },
+    {
+      "title": "claude in chrome",
+      "from": 41,
+      "to": 54
+    }
+  ]
+}

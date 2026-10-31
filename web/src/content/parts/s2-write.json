@@ -1,0 +1,704 @@
+{
+  "id": "s2-write",
+  "title": "Write 툴",
+  "summary": "말로 지시해 문서·그림·웹페이지·프로그램을 새로 만드는 Write 툴을 실습한다.",
+  "slides": [
+    {
+      "id": "s2-write-02",
+      "template": "compare",
+      "title": "마크다운 파일",
+      "left": {
+        "label": "회의노트.txt",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [],
+          "noSidebar": true,
+          "noTerminal": true,
+          "terminal": {
+            "vendor": "shell",
+            "cwd": "",
+            "turns": []
+          },
+          "editor": {
+            "file": "회의노트.txt",
+            "badge": 1,
+            "lines": [
+              "오늘 회의 정리",
+              "참석: 김대리, 박과장",
+              "결과",
+              "매출 12% 증가",
+              "신제품 5월 출시",
+              "다음 할 일",
+              "금요일 다음 회의"
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "회의노트.md",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [],
+          "noSidebar": true,
+          "terminal": {
+            "vendor": "shell",
+            "cwd": "",
+            "turns": []
+          },
+          "editor": {
+            "file": "회의노트.md",
+            "lines": [
+              "# 오늘 회의 정리",
+              "**참석**: 김대리, 박과장",
+              "## 결과",
+              "- 매출 12% 증가",
+              "- 신제품 5월 출시",
+              "## 다음 할 일",
+              "- 금요일 다음 회의"
+            ]
+          },
+          "preview": {
+            "file": "회의노트.md",
+            "badge": 2,
+            "md": [
+              "# 오늘 회의 정리",
+              "**참석**: 김대리, 박과장",
+              "## 결과",
+              "- 매출 12% 증가",
+              "- 신제품 5월 출시",
+              "## 다음 할 일",
+              "- 금요일 다음 회의"
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "txt = 글자만 있음",
+          "body": "1번 배지가 가리키는 회의노트.txt는 제목이나 목록 구분 기호 없이 줄글로만 적혀 있습니다."
+        },
+        {
+          "n": 2,
+          "head": "md = 기호가 모양이 됨",
+          "body": "2번 배지가 가리키는 회의노트.md는 #, ##, -, ** 같은 기호를 붙이면 미리보기에서 제목과 목록, 굵은 글씨로 나타납니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-write-03",
+      "template": "screen",
+      "title": "자기소개서 만들기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "간단한 너의 자기소개서를 md 파일로 현재 폴더에 작성해줘",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "요청 입력",
+          "body": "1번 배지처럼 Claude 입력창에 자기소개서를 만들어달라는 요청을 그대로 입력해보세요."
+        },
+        {
+          "n": 2,
+          "head": "\"현재 폴더\" = agent1",
+          "body": "여기서 말하는 현재 폴더는 지금 VS Code로 열어둔 agent1 폴더를 가리킵니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "간단한 너의 자기소개서를 md 파일로 현재 폴더에 작성해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-write-04",
+      "template": "compare",
+      "title": "파일 생성 결과",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개.md",
+              "active": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "간단한 너의 자기소개서를 md 파일로 현재 폴더에 작성해줘",
+                "badge": 1
+              },
+              {
+                "role": "assistant",
+                "text": "Write(자기소개.md)",
+                "badge": 2
+              },
+              {
+                "role": "assistant",
+                "text": "자기소개서를 만들었어용용!"
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "자기소개.md 미리보기",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_write_self_intro.png"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "요청대로 작성",
+          "body": "1번 배지에 있는 요청 그대로 Claude가 자기소개 내용을 담은 파일을 작성합니다."
+        },
+        {
+          "n": 2,
+          "head": "Write 툴이 파일 생성",
+          "body": "2번 배지의 Write 툴이 실행되면 탐색기에 자기소개.md 파일이 새로 생기고 바로 열립니다."
+        },
+        {
+          "n": "!",
+          "head": "이름과 말투가 그대로 반영",
+          "body": "CLAUDE.md에 적어둔 이름과 용용 말투가 자기소개서 내용에도 그대로 반영됩니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-write-05",
+      "template": "illustration",
+      "title": "SVG 벡터 그림",
+      "notes": [
+        {
+          "n": 1,
+          "head": "사진 = 점을 찍어 표현",
+          "body": "사진은 작은 점을 촘촘히 찍어서 표현하기 때문에 확대하면 점이 흐려지면서 그림이 깨집니다."
+        },
+        {
+          "n": 2,
+          "head": "벡터 = 좌표와 도형",
+          "body": "벡터 그림은 circle, rect 같은 도형과 좌표를 코드로 적어서 표현하기 때문에 확대해도 선명합니다."
+        }
+      ],
+      "illustration": "/illustrations/raster-vs-vector.svg"
+    },
+    {
+      "id": "s2-write-06",
+      "template": "screen",
+      "title": "강아지 그리기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": "자기소개.md"
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "자전거 타는 강아지를 svg 코드로 만들어줘",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "그림 대신 코드로 요청",
+          "body": "1번 배지처럼 그림 파일 대신 svg 코드로 그려달라고 요청해보세요."
+        },
+        {
+          "n": 2,
+          "head": "그림 파일이 아니라 코드",
+          "body": "이 요청은 jpg 같은 그림 파일이 아니라 좌표와 도형으로 이루어진 svg 코드를 만들어달라는 뜻입니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "자전거 타는 강아지를 svg 코드로 만들어줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-write-07",
+      "template": "compare",
+      "title": "코드로 그린 그림",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개.md"
+            },
+            {
+              "name": "자전거_강아지.svg",
+              "active": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "자전거 타는 강아지를 svg 코드로 만들어줘",
+                "badge": 1
+              },
+              {
+                "role": "assistant",
+                "text": "Write(자전거_강아지.svg)",
+                "badge": 2
+              },
+              {
+                "role": "assistant",
+                "text": "자전거 타는 강아지 그림을 완성했습니다."
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "자전거_강아지.svg",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_write_dog_bike.png"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "svg 코드 몇 줄이 그림으로",
+          "body": "1번 배지의 요청 한 줄로 Claude가 circle, rect 같은 svg 코드 몇 줄을 작성해서 자전거 타는 강아지 모양을 만듭니다."
+        },
+        {
+          "n": 2,
+          "head": "브라우저가 그려서 보여줌",
+          "body": "2번 배지처럼 Write 툴로 자전거_강아지.svg 파일이 생성되면 브라우저가 이 코드를 읽어서 그림으로 렌더링해 보여줍니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-write-08",
+      "template": "compare",
+      "title": "HTML 구조",
+      "left": {
+        "label": "poster.html 작성",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "poster.html",
+              "active": true
+            }
+          ],
+          "editor": {
+            "file": "poster.html",
+            "lines": [
+              "<h1>강아지 자전거 포스터</h1>",
+              "<img src=\"자전거_강아지.svg\">"
+            ],
+            "badge": 1
+          },
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": []
+          }
+        }
+      },
+      "right": {
+        "label": "poster.html — Chrome",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_write_poster.png"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "html = 웹페이지를 적어두는 코드",
+          "body": "1번 배지가 가리키는 poster.html 파일은 <h1> 제목 태그와 <img> 태그로 적힌 글자 코드일 뿐입니다."
+        },
+        {
+          "n": "!",
+          "head": "여는 도구에 따라 다른 모습",
+          "body": "같은 poster.html 파일도 메모장으로 열면 코드 그대로 보이고, 크롬으로 열면 태그가 해석되어 제목과 그림이 있는 웹페이지로 보입니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-write-09",
+      "template": "screen",
+      "title": "포스터 만들기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": "자기소개.md"
+          },
+          {
+            "name": "자전거_강아지.svg"
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "그 강아지를 가지고 html로 간단한 포스터를 만들어서 크롬으로 열어줘",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "\"그 강아지\" = 방금 만든 그림",
+          "body": "1번 배지의 그 강아지는 앞서 만든 자전거_강아지.svg 파일을 가리킵니다."
+        },
+        {
+          "n": 2,
+          "head": "있는 그림을 재료로 재사용",
+          "body": "Claude는 새로 그림을 그리지 않고 이미 있는 자전거_강아지.svg 파일을 그대로 재료로 가져다 씁니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "그 강아지를 가지고 html 로 간단한 포스터를 만들어서 크롬으로 열어줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-write-10",
+      "template": "compare",
+      "title": "크롬에서 열린 포스터",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개.md"
+            },
+            {
+              "name": "자전거_강아지.svg"
+            },
+            {
+              "name": "poster.html",
+              "active": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "그 강아지를 가지고 html로 간단한 포스터를 만들어서 크롬으로 열어줘",
+                "badge": 1
+              },
+              {
+                "role": "assistant",
+                "text": "Write(poster.html)"
+              },
+              {
+                "role": "assistant",
+                "text": "Bash(start poster.html)"
+              },
+              {
+                "role": "assistant",
+                "text": "포스터가 열렸어용용!"
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "poster.html — Chrome",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_write_poster.png"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "요청 하나로 작성부터 실행까지",
+          "body": "1번 배지의 요청대로 poster.html을 Write로 만들고 Bash(start poster.html)로 크롬까지 자동으로 엽니다."
+        },
+        {
+          "n": 2,
+          "head": "크롬에 뜬 포스터",
+          "body": "2번 배지는 크롬에서 열린 poster.html 결과 화면입니다."
+        },
+        {
+          "n": "!",
+          "head": "만든 그림을 포스터 소재로",
+          "body": "포스터 안에는 앞서 직접 그린 자전거_강아지.svg 그림이 그대로 들어가 있습니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-write-12",
+      "template": "compare",
+      "title": "계산기 만들기",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개.md"
+            },
+            {
+              "name": "자전거_강아지.svg"
+            },
+            {
+              "name": "poster.html"
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [],
+            "input": {
+              "text": "파이썬과 tkinter를 설치해서 간단한 계산기 프로그램 만들어줘",
+              "badge": 1
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "calculator.py — 실행 결과",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_write_calc_0.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "Windows는 프롬프트 그대로 입력",
+          "body": "Windows에서는 화면의 프롬프트를 그대로 입력하면 파이썬과 tkinter 설치부터 계산기 실행까지 한 번에 진행됩니다."
+        },
+        {
+          "n": 2,
+          "head": "calculator.py 실행 결과",
+          "body": "2번 배지는 계산기 프로그램을 실행해서 뜬 계산기 창입니다."
+        },
+        {
+          "n": "!",
+          "head": "macOS 미실행 시 대응",
+          "body": "맥에서 tkinter 창이 뜨지 않으면 아래 macOS 오류 시 프롬프트를 그대로 입력해서 python-tk를 설치하고 계산기를 다시 실행하면 됩니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "파이썬과 tkinter 를 설치해서 간단한 계산기 프로그램 만들어줘",
+            "desc": "Windows"
+          },
+          {
+            "kind": "copy",
+            "value": "맥북에서 tkinter 창이 제대로 안 떠. python3 --version 으로 파이썬 버전을 확인하고, 그 버전에 맞는 python-tk 를 brew 로 설치한 다음(예: brew install python-tk@3.12) 계산기를 다시 실행해줘",
+            "desc": "macOS 오류 시"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-write-13",
+      "template": "compare",
+      "title": "계산기 창",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개.md"
+            },
+            {
+              "name": "자전거_강아지.svg"
+            },
+            {
+              "name": "poster.html"
+            },
+            {
+              "name": "calculator.py",
+              "active": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "파이썬과 tkinter를 설치해서 간단한 계산기 프로그램 만들어줘",
+                "badge": 1
+              },
+              {
+                "role": "assistant",
+                "text": "Write(calculator.py)"
+              },
+              {
+                "role": "assistant",
+                "text": "Bash(python calculator.py)"
+              },
+              {
+                "role": "assistant",
+                "text": "계산기 창이 열렸습니다."
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "calculator.py — 실행 결과",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_write_calc_128.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "설치, 생성, 실행을 한 번에 요청",
+          "body": "1번 배지의 요청 하나로 파이썬과 tkinter 설치부터 Write로 calculator.py 작성, Bash(python calculator.py) 실행까지 Claude가 이어서 처리합니다."
+        },
+        {
+          "n": 2,
+          "head": "계산기 창 실행 결과",
+          "body": "2번 배지는 계산기 프로그램을 실행해서 뜬 계산기 창입니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-write-14",
+      "template": "compare",
+      "title": "같은 방식으로 테트리스",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개.md"
+            },
+            {
+              "name": "자전거_강아지.svg"
+            },
+            {
+              "name": "poster.html"
+            },
+            {
+              "name": "calculator.py"
+            },
+            {
+              "name": "tetris.py",
+              "active": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "같은 방식으로 간단한 테트리스 만들어줘",
+                "badge": 1
+              },
+              {
+                "role": "assistant",
+                "text": "Write(tetris.py)"
+              },
+              {
+                "role": "assistant",
+                "text": "Bash(python tetris.py)"
+              },
+              {
+                "role": "assistant",
+                "text": "테트리스 창이 열렸습니다."
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "tetris.py — 실행 결과",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_write_tetris.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "같은 방식으로 또 요청",
+          "body": "1번 배지처럼 같은 방식으로 간단한 테트리스 만들어줘라는 말만으로도 Claude가 앞선 대화 맥락을 이어서 Write로 tetris.py를 만들고 Bash(python tetris.py)로 실행까지 처리합니다."
+        },
+        {
+          "n": 2,
+          "head": "테트리스 창 실행 결과",
+          "body": "2번 배지는 테트리스 게임을 실행해서 뜬 게임 창입니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "같은 방식으로 간단한 테트리스 만들어줘"
+          }
+        ]
+      }
+    }
+  ]
+}

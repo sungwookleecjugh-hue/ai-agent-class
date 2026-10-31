@@ -1,0 +1,899 @@
+{
+  "id": "s2-bash",
+  "title": "Bash 툴",
+  "summary": "Bash 툴로 컴퓨터 자체를 직접 다루는 법(프로그램 실행·설치·조회)을 실습한다.",
+  "slides": [
+    {
+      "id": "s2-bash-01",
+      "template": "illustration",
+      "title": "터미널 명령어 실행 도구",
+      "illustration": "/illustrations/s2-bash-terminal.svg",
+      "notes": [
+        {
+          "n": 1,
+          "head": "터미널 명령어는 Claude가 대신 실행",
+          "body": "Bash 툴을 쓰면 파일과 폴더를 만들고 복사하는 것부터 프로그램을 실행하거나 설치하고, 컴퓨터 사양을 조회하는 것까지 터미널에 직접 치던 명령어를 Claude가 대신 실행해줍니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-bash-03",
+      "template": "compare",
+      "title": "카카오톡 실행",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "컴퓨터에 설치된 PC 카카오톡 찾아서 실행해줘",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(설치된 프로그램 목록에서 카카오톡 검색 → KakaoTalk.exe 실행)"
+              },
+              {
+                "role": "assistant",
+                "text": "카카오톡을 찾아서 실행했어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "카카오톡",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_kakao.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "카카오톡 찾아서 실행 요청",
+          "body": "채팅창에 컴퓨터에 설치된 PC 카카오톡을 찾아서 실행해달라고 입력하면 Claude가 Bash 툴로 설치된 프로그램 목록에서 카카오톡을 검색한 다음 KakaoTalk.exe를 실행합니다."
+        },
+        {
+          "n": 2,
+          "head": "카카오톡 실행 화면",
+          "body": "2번 배지는 실행된 카카오톡 창입니다."
+        },
+        {
+          "n": "!",
+          "head": "기존 프로그램 실행",
+          "body": "이번엔 새 프로그램을 만드는 게 아니라 컴퓨터에 이미 설치된 카카오톡을 찾아서 실행한 것입니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "컴퓨터에 설치된 PC 카카오톡 찾아서 실행해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-bash-04",
+      "template": "compare",
+      "title": "브라우저로 사이트 열기",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "크롬으로 유튜브 실행해줘",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(크롬 실행 → https://www.youtube.com 접속)"
+              },
+              {
+                "role": "assistant",
+                "text": "크롬으로 유튜브를 열었어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "YouTube — Chrome",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_youtube.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "크롬으로 유튜브 실행 요청",
+          "body": "채팅창에 크롬으로 유튜브를 실행해달라고 입력하면 Claude가 Bash 툴로 크롬을 실행하고 이어서 유튜브 주소로 바로 접속합니다."
+        },
+        {
+          "n": 2,
+          "head": "유튜브 실행 화면",
+          "body": "2번 배지는 크롬으로 열린 유튜브 화면입니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "크롬으로 유튜브 실행해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-bash-05",
+      "template": "compare",
+      "title": "바탕화면에 txt 파일 만들기",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "바탕화면에 메모.txt 파일을 만들고 오늘 할 일 세 가지를 적어줘",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(바탕화면에 메모.txt 만들기)"
+              },
+              {
+                "role": "assistant",
+                "text": "바탕화면에 메모.txt를 만들고 할 일 세 가지를 적었어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "바탕화면 — 메모.txt",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_desktop_txt.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "바탕화면에 파일 만들기 요청",
+          "body": "채팅창에 바탕화면에 메모.txt 파일을 만들고 오늘 할 일 세 가지를 적어달라고 입력하면 Claude가 Bash 툴로 바탕화면에 메모.txt를 만듭니다."
+        },
+        {
+          "n": 2,
+          "head": "바탕화면에 생긴 메모.txt",
+          "body": "2번 배지는 agent1 폴더가 아닌 바탕화면에 새로 생긴 메모.txt이며 할 일 세 가지가 적혀 있습니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "바탕화면에 메모.txt 파일을 만들고 오늘 할 일 세 가지를 적어줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-bash-05b",
+      "template": "compare",
+      "title": "바탕화면 파일 지우기",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "바탕화면에 만든 메모.txt 지워줘",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(바탕화면의 메모.txt 삭제)"
+              },
+              {
+                "role": "assistant",
+                "text": "바탕화면의 메모.txt를 지웠어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "바탕화면",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_desktop_deleted.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "방금 만든 파일 지우기 요청",
+          "body": "채팅창에 바탕화면에 만든 메모.txt를 지워달라고 입력하면 Claude가 Bash 툴로 메모.txt를 삭제합니다."
+        },
+        {
+          "n": 2,
+          "head": "바탕화면에서 사라짐",
+          "body": "2번 배지는 메모.txt가 사라진 바탕화면 화면입니다."
+        },
+        {
+          "n": "!",
+          "head": "휴지통에 남지 않는 삭제",
+          "body": "Bash로 지운 파일은 휴지통을 거치지 않고 바로 삭제되니 실습용 파일에만 이렇게 지워보세요."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "바탕화면에 만든 메모.txt 지워줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-bash-06",
+      "template": "compare",
+      "title": "파일 목록 확인",
+      "notes": [
+        {
+          "n": 1,
+          "head": "폴더 안 조회 요청",
+          "body": "채팅창에 현재 폴더의 파일 목록을 설명해달라고 입력하면 Claude가 Bash 툴로 실제 폴더 안 파일과 폴더 목록을 조회합니다."
+        },
+        {
+          "n": 2,
+          "head": "파일 탐색기로 본 목록",
+          "body": "2번 배지는 agent1 폴더를 연 파일 탐색기 화면입니다."
+        },
+        {
+          "n": "!",
+          "head": "목록을 사람 말로 풀어서 설명",
+          "body": "조회한 목록을 그대로 나열하지 않고 6개 항목이 있고 practice_files 폴더도 그대로 있다고 사람 말로 풀어서 설명합니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "현재 폴더의 파일 목록을 설명해줘"
+          }
+        ]
+      },
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "현재 폴더의 파일 목록을 설명해줘",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(파일 목록 보기)"
+              },
+              {
+                "role": "assistant",
+                "text": "6개 항목을 찾았어요. 지금까지 만든 게 다 있고, practice_files 폴더도 그대로 있어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "agent1 — 파일 탐색기",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_file_list.svg"
+        }
+      }
+    },
+    {
+      "id": "s2-bash-07",
+      "template": "compare",
+      "title": "만든 파일 찾아서 실행",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "현재 폴더에 테트리스 파일 찾아서 실행해줘",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(테트리스 파일 찾기)"
+              },
+              {
+                "role": "assistant",
+                "text": "테트리스.html을 찾아서 기본 브라우저로 열었어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "테트리스.html — 기본 브라우저",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_tetris_run.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "테트리스 찾아서 실행 요청",
+          "body": "채팅창에 현재 폴더에서 테트리스 파일을 찾아서 실행해달라고 입력하면 Claude가 Bash 툴로 폴더 안에서 테트리스 파일을 찾고 이어서 바로 실행합니다."
+        },
+        {
+          "n": 2,
+          "head": "브라우저에서 실행된 테트리스",
+          "body": "2번 배지는 테트리스.html을 기본 브라우저로 열어준 결과 화면입니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "현재 폴더에 테트리스 파일 찾아서 실행해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-bash-08",
+      "template": "compare",
+      "title": "바탕화면 위젯 만들기",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "slime_widget.py",
+              "active": true
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "svg로 귀여운 슬라임 같은 캐릭터를 간단하게 디자인해서, 바탕화면에 떠서 마우스로 들었다 놓을 수 있는(중력 적용) 프로그램을 파이썬으로 만들어서 실행해줄래? 슬라임 우클릭 또는 트레이 아이콘에 \"종료\" 메뉴를 넣어줘"
+              },
+              {
+                "role": "tool",
+                "text": "Write(slime_widget.py)"
+              },
+              {
+                "role": "tool",
+                "text": "Bash(pystray, pillow 설치 → python slime_widget.py 실행)"
+              },
+              {
+                "role": "assistant",
+                "text": "슬라임 위젯을 만들어서 실행했어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "바탕화면 — 슬라임 위젯",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_slime_widget.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "요청 하나로 끝까지",
+          "body": "슬라임 캐릭터 디자인부터 파이썬 코딩까지, Claude가 Write로 slime_widget.py를 만들고 Bash로 pystray, pillow 설치와 실행까지 이어서 처리합니다."
+        },
+        {
+          "n": 2,
+          "head": "바탕화면에 뜬 슬라임 위젯",
+          "body": "2번 배지는 바탕화면에 실행된 슬라임 위젯 화면입니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "svg로 귀여운 슬라임 같은 캐릭터를 간단하게 디자인해서, 바탕화면에 떠서 마우스로 들었다 놓을 수 있는(중력 적용) 프로그램을 파이썬으로 만들어서 실행해줄래? 슬라임 우클릭 또는 트레이 아이콘에 \"종료\" 메뉴를 넣어줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-bash-09",
+      "template": "compare",
+      "title": "바탕화면 위젯 동작 확인",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "slime_widget.py",
+              "active": true
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "svg로 귀여운 슬라임 같은 캐릭터를 간단하게 디자인해서, 바탕화면에 떠서 마우스로 들었다 놓을 수 있는(중력 적용) 프로그램을 파이썬으로 만들어서 실행해줄래? 슬라임 우클릭 또는 트레이 아이콘에 \"종료\" 메뉴를 넣어줘"
+              },
+              {
+                "role": "tool",
+                "text": "Write(slime_widget.py)"
+              },
+              {
+                "role": "tool",
+                "text": "Bash(pystray, pillow 설치 → python slime_widget.py 실행)"
+              },
+              {
+                "role": "assistant",
+                "text": "슬라임 위젯을 만들어서 실행했어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "바탕화면 — 슬라임 위젯 동작",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/s2_bash_slime_action.svg"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "Claude Code에서 만든 위젯",
+          "body": "Write로 slime_widget.py를 만들고 Bash로 pystray, pillow를 설치해 실행한 슬라임 위젯입니다."
+        },
+        {
+          "n": 2,
+          "head": "바탕화면에서 동작하는 모습",
+          "body": "2번 배지는 바탕화면에서 실제로 움직이는 슬라임 위젯 화면입니다."
+        },
+        {
+          "n": "!",
+          "head": "드래그, 중력, 종료까지 동작",
+          "body": "슬라임을 클릭한 채 끌어 올리면 마우스를 따라오고, 놓으면 중력으로 떨어지며, 우클릭 메뉴의 종료로 끌 수 있습니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-bash-10",
+      "template": "compare",
+      "title": "컴퓨터 사양·GPU 온도 확인",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "현재 컴퓨터 사양과 현재 GPU 온도 등을 조사해서 설명해줘",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(시스템 정보 조회)",
+                "badge": 2
+              },
+              {
+                "role": "assistant",
+                "text": "CPU·메모리·GPU 정보를 확인했습니다."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "시스템 정보 조회",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "shell",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "assistant",
+                "text": "CPU         ○○○○○○ (모델명)\n메모리       ○○ GB\nGPU         ○○○○○○\nGPU 온도     ○○ °C\n\n# 실제 사양·온도는 컴퓨터마다 다릅니다"
+              }
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "사양과 GPU 온도 조사 요청",
+          "body": "채팅창에 현재 컴퓨터 사양과 GPU 온도를 조사해서 설명해달라고 입력해보세요."
+        },
+        {
+          "n": 2,
+          "head": "시스템 정보 조회 명령을 실행",
+          "body": "Claude가 Bash 툴로 CPU, 메모리, GPU 정보를 조회하는 명령을 실행합니다."
+        },
+        {
+          "n": "!",
+          "head": "컴퓨터마다 다른 결과",
+          "body": "실제로 나오는 CPU 모델명, 메모리 용량, GPU 온도는 사용하는 컴퓨터마다 다르게 나타납니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "현재 컴퓨터 사양과 현재 GPU 온도 등을 조사해서 설명해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-bash-11",
+      "template": "compare",
+      "title": "웹캠으로 촬영 후 설명",
+      "left": {
+        "label": "Claude Code",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            {
+              "name": "자기소개서.txt"
+            },
+            {
+              "name": "강아지.svg"
+            },
+            {
+              "name": "포스터.html"
+            },
+            {
+              "name": "계산기.html"
+            },
+            {
+              "name": "테트리스.html"
+            },
+            {
+              "name": "capture.jpg"
+            },
+            {
+              "name": "practice_files",
+              "folder": true
+            }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "turns": [
+              {
+                "role": "user",
+                "text": "현재 컴퓨터에 연결된 웹캠 인식해볼래? 그걸로 지금 뭐가 보이는지 캡처해서 설명해봐",
+                "badge": 1
+              },
+              {
+                "role": "tool",
+                "text": "Bash(웹캠 인식 → 사진 촬영 → capture.jpg 저장)",
+                "badge": 2
+              },
+              {
+                "role": "assistant",
+                "text": "Read(capture.jpg)로 지금 보이는 걸 확인했어요."
+              }
+            ],
+            "input": {
+              "placeholder": "메시지를 입력하세요..."
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "capture.jpg",
+        "screen": {
+          "kind": "shot",
+          "src": "/shots/bash-webcam.png"
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "웹캠으로 찍고 설명 요청",
+          "body": "채팅창에 연결된 웹캠을 인식해서 지금 보이는 걸 캡처하고 설명해달라고 입력해보세요."
+        },
+        {
+          "n": 2,
+          "head": "Bash로 찍고, Read로 봄",
+          "body": "Claude가 Bash 툴로 웹캠을 인식해 capture.jpg로 저장한 다음 Read 툴로 그 사진을 직접 열어봅니다."
+        },
+        {
+          "n": "!",
+          "head": "한 가지 일에 두 개의 툴",
+          "body": "사진을 찍는 Bash 툴과 사진 내용을 확인하는 Read 툴, 이렇게 툴 두 개를 함께 사용한 것입니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "현재 컴퓨터에 연결된 웹캠 인식해볼래? 그걸로 지금 뭐가 보이는지 캡처해서 설명해봐"
+          }
+        ]
+      }
+    }
+  ]
+}

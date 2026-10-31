@@ -1,0 +1,226 @@
+{
+  "id": "s2-wrap",
+  "title": "마무리 — 에이전트 동작 원리",
+  "summary": "오늘 배운 네 가지 툴을 정리하고, 에이전트가 지시받아 반복 실행하는 원리를 이해한다.",
+  "slides": [
+    {
+      "id": "s2-wrap-01",
+      "template": "cards",
+      "title": "오늘 한 것",
+      "cards": [
+        {
+          "label": "Read",
+          "logo": "icon:Read",
+          "tags": [
+            "파일 8개 열람",
+            "이름 정리"
+          ]
+        },
+        {
+          "label": "Write",
+          "logo": "icon:Write",
+          "tags": [
+            "md·svg·html",
+            "계산기·테트리스"
+          ]
+        },
+        {
+          "label": "Edit",
+          "logo": "icon:Edit",
+          "tags": [
+            "테트리스 개선",
+            "포스터 색상"
+          ]
+        },
+        {
+          "label": "Bash",
+          "logo": "icon:Bash",
+          "tags": [
+            "앱 실행·시스템 조회",
+            "위젯·웹캠"
+          ],
+          "highlight": true
+        }
+      ]
+    },
+    {
+      "id": "s2-wrap-02",
+      "template": "flow",
+      "title": "에이전트 동작 루프",
+      "loop": true,
+      "steps": [
+        {
+          "label": "지시",
+          "sub": "사용자",
+          "logo": "icon:Chat",
+          "badge": 1
+        },
+        {
+          "label": "작성",
+          "sub": "Write·Edit",
+          "logo": "icon:Edit"
+        },
+        {
+          "label": "실행",
+          "sub": "Bash",
+          "logo": "icon:Bash"
+        },
+        {
+          "label": "확인",
+          "sub": "Read",
+          "logo": "icon:Read"
+        }
+      ],
+      "notes": [
+        {
+          "n": 1,
+          "head": "지시, 작성, 실행, 확인 순서",
+          "body": "사용자가 지시하면 Write나 Edit로 작성하고 Bash로 실행한 다음 Read로 확인하는 순서로 동작합니다."
+        },
+        {
+          "n": "!",
+          "head": "안 되면 다시",
+          "body": "확인했을 때 원하는 대로 안 되어 있으면 이 과정을 스스로 다시 반복합니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-wrap-03",
+      "template": "compare",
+      "title": "ChatGPT 와 무엇이 다른가",
+      "left": {
+        "label": "ChatGPT — 글로만 답변",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "shell",
+            "turns": [
+              {
+                "role": "user",
+                "text": "테트리스 어떻게 만들어?"
+              },
+              {
+                "role": "assistant",
+                "text": "설명과 예시 코드만 돌아온다. 실행은 직접 해야 하고, 복사·붙여넣기가 필요하다."
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "AI 에이전트 — 실물 결과 남음",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "claude",
+            "turns": [
+              {
+                "role": "user",
+                "text": "테트리스 만들어서 실행해줘"
+              },
+              {
+                "role": "assistant",
+                "text": "파일을 만들고 Bash로 바로 실행할게요."
+              }
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "ChatGPT는 글로만 답변",
+          "body": "ChatGPT에게 테트리스 어떻게 만들어? 라고 물으면 설명과 예시 코드만 돌아오고 실행은 직접 해야 합니다."
+        },
+        {
+          "n": 2,
+          "head": "에이전트는 실물 결과가 남음",
+          "body": "에이전트에게 테트리스 만들어서 실행해줘 라고 하면 파일을 만들고 Bash로 바로 실행까지 해줍니다."
+        },
+        {
+          "n": "!",
+          "head": "오늘의 증거",
+          "body": "오늘 만든 테트리스와 바탕화면 슬라임 위젯이 실제로 컴퓨터 안에 남아 있는 게 그 증거입니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-wrap-04",
+      "template": "flow",
+      "title": "'질문' 아닌 '지시'",
+      "steps": [
+        {
+          "label": "무엇을",
+          "sub": "테트리스"
+        },
+        {
+          "label": "어떤 형태로",
+          "sub": "파이썬으로"
+        },
+        {
+          "label": "어디에",
+          "sub": "현재 폴더에"
+        },
+        {
+          "label": "그다음 무엇을",
+          "sub": "실행까지"
+        }
+      ],
+      "notes": [
+        {
+          "n": 1,
+          "head": "질문하는 습관",
+          "body": "어떻게 만들어? 처럼 질문만 하면 설명만 돌아옵니다."
+        },
+        {
+          "n": 2,
+          "head": "지시하는 프롬프트",
+          "body": "무엇을, 어떤 형태로, 어디에, 그다음 무엇을 할지까지 담아서 만들어서 실행해줘 라고 지시하면 실제 결과물이 만들어집니다."
+        },
+        {
+          "n": "!",
+          "head": "오늘 쓴 프롬프트도 같은 순서",
+          "body": "오늘 포스터를 만들 때 쓴 프롬프트도 무엇을, 어떤 형태로, 어디에, 그다음 무엇을 같은 순서를 따랐습니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-wrap-05",
+      "template": "cards",
+      "title": "2회차 마무리",
+      "cards": [
+        {
+          "label": "정체성",
+          "logo": "icon:Bot",
+          "tags": [
+            "CLAUDE.md 로 이름·역할·말투"
+          ]
+        },
+        {
+          "label": "네 툴",
+          "logo": "icon:Terminal",
+          "tags": [
+            "Read·Write·Edit·Bash",
+            "읽기·만들기·고치기·실행"
+          ]
+        },
+        {
+          "label": "실물 확인",
+          "logo": "icon:Book",
+          "tags": [
+            "결과가 파일과 화면으로 남음"
+          ]
+        },
+        {
+          "label": "다음 시간",
+          "logo": "icon:Settings",
+          "tags": [
+            "환경설정·권한 모드",
+            "settings.json"
+          ],
+          "highlight": true
+        }
+      ]
+    }
+  ]
+}

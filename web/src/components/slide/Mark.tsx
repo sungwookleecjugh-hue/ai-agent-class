@@ -1,0 +1,25 @@
+// A card/step mark: a brand image path (/logos/x.svg, /brand/x.png) or "icon:<Name>" for a lucide icon.
+import { BookOpenIcon, BotIcon, BrainIcon, CpuIcon, FilePenIcon, FilePlusIcon, FileTextIcon, FolderIcon, GlobeIcon, KeyboardIcon, LockIcon, MessageSquareIcon, MousePointerClickIcon, SearchIcon, SettingsIcon, ShieldCheckIcon, SquareTerminalIcon, ZapIcon, FeatherIcon, MusicIcon, CrownIcon, SparklesIcon, CloudUploadIcon, CloudDownloadIcon, Undo2Icon, HistoryIcon, CloudIcon, MonitorIcon, SmartphoneIcon, GitCommitHorizontalIcon, GitMergeIcon, StarIcon } from "lucide-react"
+import { asset, cn } from "@/lib/utils"
+
+const ICONS = {
+  Read: FileTextIcon, Write: FilePlusIcon, Edit: FilePenIcon, Bash: SquareTerminalIcon,
+  File: FileTextIcon, Folder: FolderIcon, Terminal: SquareTerminalIcon, Globe: GlobeIcon, Search: SearchIcon,
+  Settings: SettingsIcon, Shield: ShieldCheckIcon, Lock: LockIcon, Cpu: CpuIcon, Brain: BrainIcon, Bot: BotIcon,
+  Chat: MessageSquareIcon, Keyboard: KeyboardIcon, Click: MousePointerClickIcon, Book: BookOpenIcon, Zap: ZapIcon,
+  Feather: FeatherIcon, Music: MusicIcon, Crown: CrownIcon, Sparkles: SparklesIcon,
+  Upload: CloudUploadIcon, Download: CloudDownloadIcon, Undo: Undo2Icon, History: HistoryIcon, Cloud: CloudIcon,
+  Monitor: MonitorIcon, Phone: SmartphoneIcon, Commit: GitCommitHorizontalIcon, Merge: GitMergeIcon, Star: StarIcon,
+} as const
+export const ICON_NAMES = Object.keys(ICONS)
+
+export function Mark({ src, px, className }: { src: string; px: number; className?: string }) {
+  if (src.startsWith("icon:")) {
+    const Icon = ICONS[src.slice(5) as keyof typeof ICONS] ?? BotIcon
+    return <Icon width={px} height={px} className={cn("shrink-0 text-slide-accent", className)} strokeWidth={1.6} />
+  }
+  // SVG logos often carry only a viewBox (no intrinsic size); give them an explicit square box so they never
+  // collapse to width 0. Raster wordmarks keep their natural aspect ratio.
+  const svg = src.endsWith(".svg")
+  return <img src={asset(src)} alt="" style={svg ? { height: px, width: px } : { height: px }} className={cn("max-w-full object-contain", !svg && "w-auto", className)} />
+}

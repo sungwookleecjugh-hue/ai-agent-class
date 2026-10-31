@@ -1,0 +1,184 @@
+{
+  "step": 8,
+  "title": "마무리와 추천 활용안",
+  "hours": "2시간 · Wrap-up & Skill Curation",
+  "goal": "7회차까지 직접 만든 구조를 기준 삼아, 공개된 스킬 중 실제로 쓸 만한 것을 고르고 검증하는 눈을 갖는다. 여러 스킬에서 필요한 부분만 뽑아 하나의 세트로 묶는 방법까지 익힌다.",
+  "topics": [
+    "되짚기 — 스킬 · reference 라우팅 · 멀티 에이전트",
+    "ELI5 — 상대에 맞춰 설명을 바꿔주는 스킬",
+    "웹 코드 스킬 — 폴더만 넣으면 Claude 가 화면을 제대로 만든다",
+    "고르는 기준 — 별 수가 아니라 SKILL.md 를 읽는다",
+    "Remotion 공식 스킬 — 라우터 구조를 벤더 규모로 확인",
+    "스킬 이어붙이기 — 자막에서 완성 영상까지 파이프라인",
+    "Codex · Antigravity CLI — 다른 AI에게 검수 · 이미지 · 영상 분석 맡기기"
+  ],
+  "practice": "추천 스킬을 하나씩 설치해 보고, react-shadcn-kit 세트를 받아 .claude/skills/ 에 넣은 뒤 실제로 발동시켜 본다.",
+  "slides": [
+    {
+      "imagePath": "assets/advanced/step08/마무리와_추천_활용안.svg",
+      "goal": "오늘 무엇을 하는지 알고, 스킬을 고를 때의 기본 태도를 잡는다.",
+      "topics": [
+        "되짚기 — 7회차까지 직접 만든 것이 판단 기준",
+        "추천 스킬 둘러보기 — 설명 · 글쓰기 · 디자인 · 리서치 · 개발",
+        "고르는 기준 — 별 수는 기준이 아니다",
+        "스킬은 코드 실행 권한을 가진다 — 신뢰하는 소스에서만"
+      ],
+      "practice": null,
+      "action": null
+    },
+    {
+      "imagePath": "assets/advanced/step08/ELI5_상대에_맞춰_설명하기.svg",
+      "goal": "듣는 사람에 맞춰 어휘·비유·깊이·관점을 바꿔주는 스킬을 설치하고 써 본다.",
+      "topics": [
+        "\"이 에러 우리 팀장한테 설명해줘\" 한 마디로 발동",
+        "나이 · 학년 · 직무 · 관계별로 설명 방식이 달라진다",
+        "레포 전체가 파일 9개 — SKILL.md 를 통째로 읽어볼 수 있는 크기",
+        "평가 스크립트가 함께 들어 있어 스킬의 효과를 직접 측정한다"
+      ],
+      "practice": "SKILL.md 를 먼저 열어 읽어본 뒤 설치하고, 같은 내용을 두 상대에게 설명시켜 차이를 확인한다.",
+      "action": {
+        "label": "ELI5 스킬 설치",
+        "items": [
+          {
+            "link": {
+              "href": "https://github.com/dreambigou/eli5",
+              "text": "dreambigou/eli5"
+            },
+            "desc": "먼저 눌러서 skills/eli5/SKILL.md 를 읽어봅니다"
+          },
+          {
+            "desc": "Claude 에게 그대로 붙여넣으세요",
+            "copy": "https://github.com/dreambigou/eli5 이 레포의 eli5 스킬을 현재 폴더의 .claude/skills 에 설치해줘. 설치하기 전에 SKILL.md 를 읽고 무엇을 하는 스킬인지 한 줄로 알려줘."
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/advanced/step08/웹_코드_스킬.svg",
+      "goal": "Claude 가 웹 화면을 제대로 만들게 하는 스킬 두 개를 설치하고, 실제로 화면을 만들게 시켜 본다.",
+      "topics": [
+        "ZIP 을 풀어 폴더 두 개를 스킬 폴더에 넣으면 끝 — 설치 명령도 인터넷도 불필요",
+        "shadcn (공식) — 버튼 · 표 · 폼 · 다이얼로그를 어떻게 쓰는가",
+        "react-shadcn-kit — 디자인 · 접근성 · 테스트 · 브라우저로 눈 확인",
+        "스킬 이름을 부를 필요 없이 \"대시보드 만들어줘\" 한 마디면 발동"
+      ],
+      "practice": "두 폴더를 스킬 폴더에 넣고, \"5페이지 정도 규모의 ERP 대시보드 만들어줘\" 라고 시켜 결과물을 브라우저로 확인한다.",
+      "action": {
+        "label": "웹 코드 스킬 설치",
+        "items": [
+          {
+            "link": {
+              "href": "https://hw5511.github.io/ai-agent-class/assets/advanced/step08/web-skills.zip",
+              "text": "web-skills.zip — 스킬 2개"
+            },
+            "desc": "직접 받아서 넣어도 됩니다 (react-shadcn-kit · shadcn)"
+          },
+          {
+            "desc": "Claude 에게 그대로 붙여넣으세요",
+            "copy": "https://hw5511.github.io/ai-agent-class/assets/advanced/step08/web-skills.zip 이 ZIP 을 받아서 압축을 풀고, 안에 들어 있는 react-shadcn-kit 과 shadcn 두 폴더를 현재 폴더의 .claude/skills 에 설치해줘. 설치가 끝나면 두 스킬이 각각 무엇을 담당하는지 한 줄씩 알려줘."
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/advanced/step08/Remotion_스킬_라우터의_완성형.svg",
+      "goal": "공식 벤더가 만든 라우터형 스킬을 열어보고, 우리가 만든 reference 라우팅이 커지면 어떤 모습이 되는지 확인한다.",
+      "topics": [
+        "라우터 1개(59줄) + 스킬 11개 — 분기 규칙만 담은 SKILL.md",
+        "같은 문서를 SKILL.md(자동 발동)와 REFERENCE.md(필요할 때)로 이중 배포",
+        "만든 사람만 아는 내용 — CSS 애니메이션은 렌더링되지 않는다",
+        "설치는 라우터만 1.7MB, --all 은 3.4MB에 문서 89개가 두 벌"
+      ],
+      "practice": "라우터 SKILL.md 59줄을 먼저 읽고, 내 스킬의 라우팅과 무엇이 다른지 비교한 뒤 설치한다.",
+      "action": {
+        "label": "Remotion 스킬 설치",
+        "items": [
+          {
+            "link": {
+              "href": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-best-practices",
+              "text": "remotion-dev/skills — 라우터 SKILL.md"
+            },
+            "desc": "먼저 눌러서 59줄짜리 라우팅 규칙을 봅니다"
+          },
+          {
+            "desc": "Claude 에게 그대로 붙여넣으세요",
+            "copy": "https://github.com/remotion-dev/skills 여기서 remotion-best-practices 스킬만 현재 폴더의 .claude/skills 에 설치해줘. 그 하나가 나머지 11개를 라우팅으로 품고 있으니 전부 설치하지는 마."
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/advanced/step08/스킬_이어붙이기_영상_만들기.svg",
+      "goal": "스킬 두 개를 파이프라인으로 이어 실제 산출물(영상)을 끝까지 만들어 본다.",
+      "topics": [
+        "SRT → srt-whiteboard → 씬 MP4 5개 → Remotion → 완성 MP4",
+        "역할 분담 — 그리기는 화이트보드, 편집·전환·자막은 Remotion",
+        "접합부는 파일이다 — SRT 와 MP4 가 두 스킬을 잇는다",
+        "설치 전 확인 — 파이썬 실행 + SKILL.md 의 중국어 강제 조항"
+      ],
+      "practice": "완성 영상을 먼저 보고, 두 레포의 SKILL.md 를 열어 각자 무엇을 책임지는지 확인한다.",
+      "action": {
+        "label": "결과물과 재료",
+        "items": [
+          {
+            "link": {
+              "href": "https://hw5511.github.io/ai-agent-class/assets/advanced/step08/스킬_조합_데모.mp4",
+              "text": "완성 영상 보기 — 복리는 왜 강한가 (48초)"
+            },
+            "desc": "두 스킬을 이어 만든 실제 결과물입니다"
+          },
+          {
+            "link": {
+              "href": "https://github.com/geeklee/srt-whiteboard-animation",
+              "text": "geeklee/srt-whiteboard-animation"
+            },
+            "desc": "자막을 손그림 영상으로 바꾸는 스킬 (파이썬 실행)"
+          },
+          {
+            "desc": "Claude 에게 그대로 붙여넣으세요",
+            "copy": "https://github.com/geeklee/srt-whiteboard-animation 이 레포를 받아서 현재 폴더의 .claude/skills 에 설치하고, scripts/prepare_env.py 로 전용 파이썬 가상환경까지 준비해줘. SKILL.md 에 출력을 중국어로 쓰라는 조항이 있으면 한국어로 바꿔줘."
+          }
+        ]
+      }
+    },
+    {
+      "imagePath": "assets/advanced/step08/Codex_Antigravity_CLI_활용법.svg",
+      "goal": "Claude 하나로 안 되는 일을 다른 회사의 AI CLI 를 불러 해결하는 방법을 익힌다.",
+      "topics": [
+        "다른 AI에게 물어보기 — 모델을 골라 보내고, 직전 대화를 이어서 묻는다",
+        "이미지 만들기 — codex 와 agy 둘 다 이미지 생성 도구를 갖고 있다",
+        "영상 읽히기 — Gemini 는 mp4 파일을 프레임 추출 없이 그대로 본다",
+        "스킬로 감싸 두면 Claude 가 대화하듯 세 가지를 알아서 부른다"
+      ],
+      "practice": "스킬 3개를 설치하고, 방금 만든 코드를 다른 모델에게 검수시켜 Claude 가 놓친 것이 나오는지 확인한다.",
+      "action": {
+        "label": "CLI 스킬 3개 설치하고 불러보기",
+        "items": [
+          {
+            "link": {
+              "href": "https://hw5511.github.io/ai-agent-class/assets/advanced/step08/cli-skills.zip",
+              "text": "cli-skills.zip — 스킬 3개"
+            },
+            "desc": "cli-ask · cli-image · cli-video"
+          },
+          {
+            "desc": "Claude 에게 그대로 붙여넣으세요 — 스킬 3개를 설치합니다",
+            "copy": "https://hw5511.github.io/ai-agent-class/assets/advanced/step08/cli-skills.zip 이 ZIP 을 받아서 압축을 풀고, 안에 들어 있는 cli-ask · cli-image · cli-video 세 폴더를 현재 폴더의 .claude/skills 에 설치해줘. 설치가 끝나면 세 스킬이 각각 무엇을 담당하는지 한 줄씩 알려줘."
+          },
+          {
+            "desc": "① 다른 AI에게 물어보기",
+            "copy": "방금 만든 코드를 cli-ask 스킬로 codex 와 agy 한테 각각 검수받아줘. 두 쪽이 지적한 것 중 네가 놓친 게 있으면 정리해서 알려줘."
+          },
+          {
+            "desc": "② 이미지 만들기",
+            "copy": "cli-image 스킬로 이 문서에 넣을 삽화 하나 만들어줘. agy 로 16:9 로 뽑고 assets 폴더에 저장한 다음 경로를 알려줘."
+          },
+          {
+            "desc": "③ 영상 읽히기",
+            "copy": "cli-video 스킬로 이 mp4 를 Gemini 에게 읽혀서, 샷이 몇 개이고 각 샷에 무엇이 보이는지 표로 정리하게 해줘."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 840" width="1792" height="840" font-family="Pretendard, 'Pretendard Variable', 'Malgun Gothic', sans-serif">
+<rect x="0" y="0" width="1792" height="840" fill="#fff"/>
+
+<g transform="translate(0,110)">
+<!-- meta -->
+<text x="0" y="370" font-size="26" fill="#7c8288" font-family="'D2Coding', Consolas, 'Courier New', monospace">https://</text>
+<line x1="0" y1="400" x2="1792" y2="400" stroke="#d5d8dc" stroke-width="2"/>
+
+<!-- hero URL: font-independent glyph runs. Each run is forced to its computed span via textLength,
+     so brackets (assumed 0.55em @104px advance -> student 400.4 / .github.io/ 629.2 / cafe-landing 686.4)
+     stay aligned even where a font substitution (e.g. Courier/Menlo on Mac) would otherwise misalign it. -->
+<text x="0" y="560" font-size="104" font-weight="700" font-family="'D2Coding', Consolas, 'Courier New', monospace" fill="#1273c4" textLength="400.4" lengthAdjust="spacingAndGlyphs">student</text>
+<text x="400.4" y="560" font-size="104" font-weight="700" font-family="'D2Coding', Consolas, 'Courier New', monospace" fill="#101113" textLength="629.2" lengthAdjust="spacingAndGlyphs">.github.io/</text>
+<text x="1029.6" y="560" font-size="104" font-weight="700" font-family="'D2Coding', Consolas, 'Courier New', monospace" fill="#1273c4" textLength="686.4" lengthAdjust="spacingAndGlyphs">cafe-landing</text>
+
+<!-- bracket 01: 계정 이름 (spans "student", x 0 - 400.4) -->
+<path d="M0 590 V610 H400.4 V590" fill="none" stroke="#1273c4" stroke-width="3"/>
+<text x="0" y="660"><tspan font-size="26" fill="#7c8288" font-family="'D2Coding', Consolas, 'Courier New', monospace">01</tspan><tspan dx="16" font-size="40" font-weight="700" fill="#101113">계정 이름</tspan></text>
+
+<!-- bracket 02: 레포 이름 (spans "cafe-landing", x 1029.6 - 1716) -->
+<path d="M1029.6 590 V610 H1716 V590" fill="none" stroke="#1273c4" stroke-width="3"/>
+<text x="1029.6" y="660"><tspan font-size="26" fill="#7c8288" font-family="'D2Coding', Consolas, 'Courier New', monospace">02</tspan><tspan dx="16" font-size="40" font-weight="700" fill="#101113">레포 이름</tspan></text>
+</g>
+</svg>

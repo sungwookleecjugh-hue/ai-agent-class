@@ -1,0 +1,90 @@
+{
+  "id": "s3-model",
+  "title": "/MODEL",
+  "summary": "/model 로 모델 목록을 보고 속도와 성능의 방향을 이해한다.",
+  "slides": [
+    {
+      "id": "s3-model-01",
+      "template": "screen",
+      "title": "/model 선택 화면",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "/model",
+              "badge": 1
+            },
+            {
+              "role": "assistant",
+              "text": "Opus 5 — For complex tasks",
+              "badge": 2
+            },
+            {
+              "role": "assistant",
+              "text": "Sonnet 5 — Most efficient for everyday tasks",
+              "badge": 3
+            },
+            {
+              "role": "assistant",
+              "text": "Haiku 4.5 — Fastest for quick answers"
+            },
+            {
+              "role": "assistant",
+              "text": "Fable 5"
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/model 명령",
+          "body": "/model 을 입력하면 선택할 수 있는 모델 목록이 표시됩니다."
+        },
+        {
+          "n": 2,
+          "head": "Opus 5 · Sonnet 5",
+          "body": "Opus 5 는 복잡한 작업에 적합하고, Sonnet 5 는 일상적인 작업에 효율적입니다."
+        },
+        {
+          "n": 3,
+          "head": "Haiku 4.5 · Fable 5",
+          "body": "Haiku 4.5 는 빠른 답변에 최적화되어 있고, Fable 5 도 목록에서 선택할 수 있습니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/model"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-model-02",
+      "template": "illustration",
+      "title": "haiku → sonnet → opus → fable",
+      "illustration": "/illustrations/s3-model-lineup.svg",
+      "notes": [
+        {
+          "n": 1,
+          "head": "왼쪽 = 빠르고 저렴",
+          "body": "왼쪽에 있는 모델일수록 응답이 빠르고 사용량도 덜 소모합니다."
+        },
+        {
+          "n": 2,
+          "head": "오른쪽 = 더 똑똑함",
+          "body": "오른쪽에 있는 모델일수록 복잡한 작업에 강하지만 사용량은 더 많이 소모합니다."
+        }
+      ]
+    }
+  ]
+}

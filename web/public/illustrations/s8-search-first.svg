@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 840" width="1792" height="840" font-family="Pretendard, 'Pretendard Variable', 'Malgun Gothic', sans-serif">
+<rect x="0" y="0" width="1792" height="840" fill="#fff"/>
+
+<g transform="translate(0,-50)">
+<!-- 3 columns, 96 gap, spanning exactly 0..1792: width 533.3333 each -->
+<!-- column 1: 만들까? -->
+<line x1="0" y1="652" x2="533.3333" y2="652" stroke="#101113" stroke-width="2"/>
+<text x="0" y="694" font-size="26" fill="#7c8288" font-family="'D2Coding', Consolas, 'Courier New', monospace">01</text>
+<text x="0" y="772" font-size="52" font-weight="700" fill="#101113">만들까?</text>
+
+<!-- gutter arrow 1: on the rule's y, inside the gap (533.3333..629.3333) -->
+<line x1="549.3333" y1="652" x2="599.3333" y2="652" stroke="#1273c4" stroke-width="2"/>
+<polygon points="613.3333,652 599.3333,644 599.3333,660" fill="#1273c4"/>
+
+<!-- column 2: 먼저 찾기 -->
+<line x1="629.3333" y1="652" x2="1162.6667" y2="652" stroke="#101113" stroke-width="2"/>
+<text x="629.3333" y="694" font-size="26" fill="#7c8288" font-family="'D2Coding', Consolas, 'Courier New', monospace">02</text>
+<text x="629.3333" y="772" font-size="52" font-weight="700" fill="#101113">먼저 찾기</text>
+<text x="629.3333" y="820" font-size="28" fill="#7c8288">트렌딩 · 검색</text>
+
+<!-- gutter arrow 2: on the rule's y, inside the gap (1162.6667..1258.6667) -->
+<line x1="1178.6667" y1="652" x2="1228.6667" y2="652" stroke="#1273c4" stroke-width="2"/>
+<polygon points="1242.6667,652 1228.6667,644 1228.6667,660" fill="#1273c4"/>
+
+<!-- column 3: 이미 누가 만들어 둠 (conclusion) -->
+<line x1="1258.6667" y1="652" x2="1792" y2="652" stroke="#1273c4" stroke-width="4"/>
+<text x="1258.6667" y="694" font-size="26" fill="#7c8288" font-family="'D2Coding', Consolas, 'Courier New', monospace">03</text>
+<text x="1258.6667" y="768" font-size="52" font-weight="700" fill="#1273c4">이미 누가 만들어 둠</text>
+<text x="1258.6667" y="820" font-size="30" fill="#101113"><tspan font-family="Pretendard, 'Pretendard Variable', 'Malgun Gothic', sans-serif">&#9733;</tspan><tspan font-family="'D2Coding', Consolas, 'Courier New', monospace"> 12.4k</tspan></text>
+</g>
+</svg>

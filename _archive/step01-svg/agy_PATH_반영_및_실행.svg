@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect x="60" y="44" width="78" height="24" rx="12" fill="#171717"/>
+  <text x="99" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#fafafa" letter-spacing="0.8">BASIC 01</text>
+  <rect x="150" y="44" width="66" height="24" rx="12" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+  <text x="183" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#6b7280">STEP 4</text>
+  <text x="60" y="100" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="26" font-weight="800" fill="#0a0a0a" letter-spacing="-0.02em">VS Code 재실행 후 Antigravity 실행</text>
+  <text x="60" y="148" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" fill="#6b7280">명령어로 PATH 를 만지지 않습니다. VS Code 를 껐다 켜면 새 PATH 를 읽습니다</text>
+
+  <rect x="60" y="175" width="1160" height="472" rx="10" fill="#1e1e1e" stroke="#333333" stroke-width="1.5"/>
+  <path d="M60 185a10 10 0 0 1 10-10h1140a10 10 0 0 1 10 10v22H60z" fill="#2d2d2d"/>
+  <circle cx="82" cy="191" r="5.5" fill="#ef4444"/>
+  <circle cx="100" cy="191" r="5.5" fill="#f59e0b"/>
+  <circle cx="118" cy="191" r="5.5" fill="#22c55e"/>
+  <text x="640" y="195" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="12" font-weight="500" fill="#cccccc">에이전트1 — Visual Studio Code</text>
+  <rect x="60" y="207" width="1160" height="415" fill="#181818"/>
+  <rect x="88" y="240" width="1104" height="62" rx="6" fill="#252526" stroke="#484848"/>
+  <circle cx="122" cy="271" r="15" fill="#1d4ed8"/>
+  <text x="122" y="276" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+  <text x="152" y="266" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#e5e7eb">VS Code 를 완전히 종료</text>
+  <text x="152" y="288" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#9ca3af">File &gt; Exit — 창 ✕ 닫기나 Reload Window 는 PATH 를 다시 안 읽습니다</text>
+  <rect x="88" y="314" width="1104" height="62" rx="6" fill="#252526" stroke="#484848"/>
+  <circle cx="122" cy="345" r="15" fill="#1d4ed8"/>
+  <text x="122" y="350" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="12" font-weight="700" fill="#ffffff">2</text>
+  <text x="152" y="340" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#e5e7eb">VS Code 다시 실행</text>
+  <text x="152" y="362" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#9ca3af">같은 폴더 열기 → Terminal &gt; New Terminal (macOS 는 새 터미널만 열면 됩니다)</text>
+  <text x="88" y="410" font-family="Consolas,'Cascadia Mono','Courier New',monospace" font-size="12" font-weight="400" fill="#858585">POWERSHELL · 새 터미널</text>
+  <rect x="88" y="426" width="1104" height="96" rx="6" fill="#111827" stroke="#374151"/>
+  <text x="112" y="456" font-family="Consolas,'Cascadia Mono','Courier New',monospace" font-size="14" font-weight="400" fill="#e5e7eb">PS C:\...\에이전트1&gt; agy --version</text>
+  <text x="112" y="484" font-family="Consolas,'Cascadia Mono','Courier New',monospace" font-size="14" font-weight="700" fill="#fbbf24">PS C:\...\에이전트1&gt; agy --dangerously-skip-permissions</text>
+  <text x="112" y="508" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="12" font-weight="400" fill="#9ca3af">확인 없이 파일·명령을 실행하는 모드 — 이어서 설치까지 맡기기 위해 씁니다</text>
+  <rect x="88" y="546" width="1104" height="48" rx="6" fill="#0f291e" stroke="#166534" stroke-width="1.2"/>
+  <text x="112" y="576" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#4ade80">✔  버전이 찍히면 PATH 가 반영된 것입니다 — 안 찍히면 ①번을 다시 하세요</text>
+
+  <path d="M60 622h1160v15a10 10 0 0 1-10 10H70a10 10 0 0 1-10-10z" fill="#007acc"/>
+  <text x="74" y="638" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="500" fill="#ffffff">⑂ main*</text>
+  <text x="910" y="638" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" fill="#ffffff">PowerShell</text>
+  <text x="640" y="682" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" font-weight="500" fill="#6b7280">권한 확인 없이 실행해 두면, 다음 단계에서 설치까지 agy 에게 맡길 수 있습니다</text>
+</svg>

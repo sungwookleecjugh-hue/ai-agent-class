@@ -1,0 +1,403 @@
+{
+  "id": "s3-settings",
+  "title": "settings.json",
+  "summary": "settings.json 으로 도구 권한을 직접 설정하고, 규칙이 실제로 적용되는지 확인한다.",
+  "slides": [
+    {
+      "id": "s3-settings-01",
+      "template": "screen",
+      "title": "settings.json",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true,
+            "badge": 1
+          },
+          {
+            "name": "settings.json",
+            "depth": 1,
+            "badge": 2
+          }
+        ],
+        "editor": {
+          "file": "settings.json",
+          "lines": [
+            "{",
+            "  \"permissions\": {",
+            "    \"allow\": [],",
+            "    \"deny\": []",
+            "  }",
+            "}"
+          ]
+        },
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "placeholder": "메시지를 입력하세요..."
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "숨김 폴더 .claude 안",
+          "body": "settings.json 은 CLAUDE.md 처럼 숨김 폴더인 .claude 안에 있습니다."
+        },
+        {
+          "n": 2,
+          "head": "파일 이름 settings.json",
+          "body": "이 파일 하나에 도구 실행 규칙, 모델, 환경변수까지 함께 저장됩니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-settings-03",
+      "template": "screen",
+      "title": "삭제 명령어 금지",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "text": "현재 폴더의 .claude 폴더에 settings.json 파일을 만들어서 모든 삭제 명령어를 금지시켜줘",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "만들 파일과 막을 것을 함께 요청",
+          "body": "settings.json 파일을 만드는 것과 삭제 명령을 차단하는 것을 한 번에 요청해보세요."
+        },
+        {
+          "n": "!",
+          "head": "위치까지 지정",
+          "body": "요청할 때 .claude 폴더 안이라는 경로까지 함께 밝혀주세요."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "현재 폴더의 .claude 폴더에 settings.json 파일을 만들어서 모든 삭제 명령어를 금지시켜줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-settings-04",
+      "template": "screen",
+      "title": "생성된 deny 규칙",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "settings.json",
+            "depth": 1,
+            "active": true
+          }
+        ],
+        "editor": {
+          "file": ".claude/settings.json",
+          "lines": [
+            "{",
+            "  \"permissions\": {",
+            "    \"deny\": [",
+            "      \"Bash(rm:*)\", \"Bash(rmdir:*)\",",
+            "      \"Bash(unlink:*)\", \"Bash(shred:*)\",",
+            "      \"Bash(find:* -delete*)\", \"Bash(git rm:*)\",",
+            "      \"Bash(git clean:*)\",",
+            "      \"PowerShell(Remove-Item:*)\", \"PowerShell(ri:*)\",",
+            "      \"PowerShell(rm:*)\", \"PowerShell(rmdir:*)\",",
+            "      \"PowerShell(del:*)\", \"PowerShell(erase:*)\",",
+            "      \"PowerShell(rd:*)\", \"PowerShell(Clear-Content:*)\",",
+            "      \"PowerShell(git rm:*)\", \"PowerShell(git clean:*)\"",
+            "    ]",
+            "  }",
+            "}"
+          ]
+        },
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [],
+          "input": {
+            "placeholder": "메시지를 입력하세요..."
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "Bash · PowerShell 모두",
+          "body": "rm 계열과 Remove-Item 계열 명령이 Bash 와 PowerShell 양쪽 모두 deny 에 등록됩니다."
+        },
+        {
+          "n": 2,
+          "head": "이름 패턴으로 차단",
+          "body": "\"PowerShell(rm:*)\" 처럼 명령 이름 뒤에 별표를 붙인 패턴으로 차단합니다."
+        },
+        {
+          "n": "!",
+          "head": "한계도 있음",
+          "body": "다만 이 규칙은 Write 나 Edit 로 파일을 덮어쓰는 것까지는 막지 못한다는 한계가 있습니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-settings-05",
+      "template": "screen",
+      "title": "/clear 로 대화 비우기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "settings.json",
+            "depth": 1,
+            "active": true
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "현재 폴더의 .claude 폴더에 settings.json 파일을 만들어서 모든 삭제 명령어를 금지시켜줘"
+            },
+            {
+              "role": "assistant",
+              "text": "settings.json 을 만들고 삭제 명령어를 모두 deny 에 넣었어요."
+            }
+          ],
+          "input": {
+            "text": "/clear",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/clear",
+          "body": "/clear 를 입력하면 지금 대화방을 나가고 새 대화방이 시작됩니다."
+        },
+        {
+          "n": "!",
+          "head": "새 규칙은 다음 세션부터",
+          "body": "방금 만든 규칙은 새 세션을 시작할 때 다시 읽혀서 적용됩니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/clear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-settings-06",
+      "template": "screen",
+      "title": "파일 삭제 요청",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "settings.json",
+            "depth": 1
+          },
+          {
+            "name": "test.txt",
+            "badge": 1,
+            "active": true
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "test.txt 파일을 삭제해줘",
+              "badge": 2
+            }
+          ],
+          "input": {
+            "placeholder": "메시지를 입력하세요..."
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "지우려는 파일",
+          "body": "방금 만든 test.txt 파일을 지워보겠습니다."
+        },
+        {
+          "n": 2,
+          "head": "삭제해줘",
+          "body": "터미널에 삭제해달라고 입력하고 Enter 를 눌러보세요."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "test.txt 파일을 삭제해줘"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3-settings-07",
+      "template": "screen",
+      "title": "Permission denied",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "settings.json",
+            "depth": 1
+          },
+          {
+            "name": "test.txt"
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "test.txt 파일을 삭제해줘"
+            },
+            {
+              "role": "assistant",
+              "text": "Permission to use PowerShell with command Remove-Item -LiteralPath .\\test.txt -Confirm:$false; Test-Path -LiteralPath .\\test.txt has been denied.",
+              "badge": 1
+            }
+          ],
+          "input": {
+            "placeholder": "메시지를 입력하세요..."
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "명령 패턴으로 차단",
+          "body": "삭제 요청이 \"PowerShell(rm:*)\" 규칙에 걸려 호출이 거부됩니다."
+        },
+        {
+          "n": "!",
+          "head": "파일은 그대로 남음",
+          "body": "명령이 거부되어 test.txt 파일은 삭제되지 않고 그대로 남습니다."
+        }
+      ]
+    },
+    {
+      "id": "s3-settings-08",
+      "template": "screen",
+      "title": "저절로 생기는 settings.json",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "noTerminal": true,
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "",
+          "turns": []
+        },
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "CLAUDE.md",
+            "depth": 1
+          },
+          {
+            "name": "settings.json",
+            "depth": 1,
+            "active": true,
+            "badge": 1
+          },
+          {
+            "name": "자기소개.md"
+          },
+          {
+            "name": "practice_files",
+            "folder": true
+          }
+        ],
+        "editor": {
+          "file": "settings.json",
+          "badge": 2,
+          "lines": [
+            "{",
+            "  \"permissions\": {",
+            "    \"allow\": [",
+            "      \"Bash(python:*)\"",
+            "    ]",
+            "  },",
+            "  \"enabledPlugins\": {}",
+            "}"
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "시키지 않아도 생성 가능",
+          "body": "따로 만들라고 시키지 않아도 사용하는 중에 .claude 폴더 안에 저절로 생성될 수 있습니다."
+        },
+        {
+          "n": 2,
+          "head": "여러 설정이 적히는 파일",
+          "body": "사용하면서 고른 설정들이 이 파일에 자동으로 기록됩니다."
+        },
+        {
+          "n": "!",
+          "head": "생겨 있어도 문제 없음",
+          "body": "이 파일이 생겨 있어도 문제가 없으니 지우거나 고치지 말고 그대로 두세요."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+name: Deploy to GitHub Pages
+
+# The published site is the React viewer in web/ (shadcn version, canonical since 2026-09-22).
+# Slides are data: web/src/content (native sessions/parts) + courses/*.json (older decks shown as
+# image slides with their action boxes). Legacy slide images live in assets/ and are copied next
+# to the build, because web/public/assets is only a local junction to ../assets.
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Content gate
+        working-directory: web
+        run: node scripts/check-content.mjs
+
+      - name: Build viewer
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Build overview page
+        run: python build.py
+
+      - name: Prepare deployment
+        run: |
+          mkdir -p _site
+          cp -r web/dist/. _site/
+          mkdir -p _site/assets
+          cp -r assets/. _site/assets/
+          rm -rf _site/assets/basic/_check
+          cp -r consultation _site/consultation
+          cp -r playwright_demo _site/playwright_demo
+          cp -r overview _site/overview
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

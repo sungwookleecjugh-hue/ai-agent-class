@@ -1,0 +1,489 @@
+{
+  "id": "s2-claudemd",
+  "title": "CLAUDE.md",
+  "summary": "CLAUDE.md 파일 하나로 에이전트에 이름·역할·말투를 상시 지시해 정체성을 부여한다.",
+  "slides": [
+    {
+      "id": "s2-claudemd-01",
+      "template": "screen",
+      "title": "CLAUDE.md 상시 지시서",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true,
+            "active": true
+          },
+          {
+            "name": "CLAUDE.md",
+            "depth": 1,
+            "badge": 2
+          }
+        ],
+        "editor": {
+          "file": "CLAUDE.md",
+          "lines": [
+            "이름: 'ㅇㅇ'",
+            "역할: 'ai 에이전트 수업 도우미'",
+            "말투: '~용용'",
+            "규칙: '답변은 짧게'"
+          ]
+        },
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "매번 말하지 않아도 되는 상시 지시서",
+          "body": "CLAUDE.md 파일 하나를 만들어두면 대화를 시작할 때마다 자동으로 읽혀서 이름, 역할, 말투를 매번 말하지 않아도 됩니다."
+        },
+        {
+          "n": 2,
+          "head": "이름, 역할, 말투 부여",
+          "body": "이 파일 안에 이름, 역할, 말투, 규칙을 적어두면 에이전트에게 정체성을 부여할 수 있습니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-claudemd-02",
+      "template": "screen",
+      "title": "세션 시작 시 자동 로드",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "CLAUDE.md",
+            "depth": 1,
+            "badge": 1
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "너는 누구니?"
+            },
+            {
+              "role": "assistant",
+              "text": "저는 ㅇㅇ이에요용. ai 에이전트 수업 도우미용.",
+              "badge": 3
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "파일 위치 유지",
+          "body": "CLAUDE.md 파일은 agent1 폴더의 .claude 폴더 안에 그대로 둡니다."
+        },
+        {
+          "n": 2,
+          "head": "지시 없이 자동으로 읽기",
+          "body": "CLAUDE.md 읽어 라고 따로 지시하지 않아도 대화를 시작하면 자동으로 읽힙니다."
+        },
+        {
+          "n": 3,
+          "head": "답변 변화",
+          "body": "답변에 CLAUDE.md에 적은 이름, 역할, 말투가 그대로 반영되어 나타납니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-claudemd-04",
+      "template": "illustration",
+      "title": "이름·역할·말투·규칙 네 가지",
+      "illustration": "/illustrations/s2-claudemd-identity.svg",
+      "notes": [
+        {
+          "n": "!",
+          "head": "예시일 뿐",
+          "body": "카드에 적힌 이름, 역할, 말투는 예시일 뿐이니 원하는 대로 자유롭게 바꿔서 적어도 됩니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-claudemd-05",
+      "template": "screen",
+      "title": "기본 상태 확인",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "너는 누구니?",
+              "badge": 1
+            },
+            {
+              "role": "assistant",
+              "text": "안녕하세요! 저는 Claude Code예요. Anthropic이 만든 AI 코딩 어시스턴트예요.",
+              "badge": 2
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "'너는 누구니?' 질문",
+          "body": "CLAUDE.md 파일이 없는 상태에서 채팅창에 너는 누구니 라고 물어보세요."
+        },
+        {
+          "n": 2,
+          "head": "기본 정체성 답변",
+          "body": "Claude Code, Anthropic이 만든 AI 코딩 어시스턴트라는 기본 정체성으로 답합니다."
+        },
+        {
+          "n": "!",
+          "head": "이 답을 기억해두기",
+          "body": "이 답변을 기억해두었다가 CLAUDE.md를 적용한 다음 나오는 답변과 비교해보세요."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "너는 누구니?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-claudemd-06",
+      "template": "screen",
+      "title": ".claude 폴더 만들기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true,
+            "editing": true,
+            "badge": 2
+          }
+        ],
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        },
+        "explorerAction": {
+          "icon": "newFolder",
+          "badge": 1
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "New Folder 아이콘 클릭",
+          "body": "agent1 폴더에 마우스를 올리면 아이콘 4개가 나타나는데 그중 New Folder 아이콘을 클릭해보세요."
+        },
+        {
+          "n": 2,
+          "head": "이름 .claude 입력 후 Enter",
+          "body": "폴더 이름 입력칸에 .claude를 입력하고 Enter를 눌러보세요."
+        },
+        {
+          "n": "!",
+          "head": "점(.)까지 포함한 이름",
+          "body": "맨 앞의 점(.)까지 정확히 포함해서 이름을 입력해야 합니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-claudemd-07",
+      "template": "screen",
+      "title": "CLAUDE.md 파일 만들기",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true,
+            "active": true
+          },
+          {
+            "name": "CLAUDE.md",
+            "depth": 1,
+            "editing": true,
+            "badge": 2
+          }
+        ],
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        },
+        "explorerAction": {
+          "icon": "newFile",
+          "badge": 1
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "New File 아이콘 클릭",
+          "body": ".claude 폴더를 선택한 다음 새 파일 아이콘을 클릭해보세요."
+        },
+        {
+          "n": 2,
+          "head": "이름 CLAUDE.md 입력 후 Enter",
+          "body": "파일 이름 입력칸에 대문자로 정확히 CLAUDE.md를 입력하고 Enter를 눌러보세요."
+        },
+        {
+          "n": "!",
+          "head": ".claude 폴더 안에 만들기",
+          "body": "이 파일은 agent1 폴더 바로 아래가 아니라 .claude 폴더 안에 만들어야 합니다."
+        }
+      ]
+    },
+    {
+      "id": "s2-claudemd-08",
+      "template": "screen",
+      "title": "CLAUDE.md 내용 작성",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "CLAUDE.md",
+            "depth": 1,
+            "active": true
+          }
+        ],
+        "editor": {
+          "file": "CLAUDE.md",
+          "lines": [
+            "너의 이름은 'ㅇㅇ'이야, 너의 역할은 'ai 에이전트 수업 도우미'야.",
+            "말끝마다 '~요'를 '~용용'으로 붙여서 답변해"
+          ],
+          "badge": 1
+        },
+        "terminal": {
+          "vendor": "shell",
+          "cwd": "C:\\agent1",
+          "turns": []
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "이름, 역할, 말투 세 가지 적기",
+          "body": "CLAUDE.md 파일 안에 이름, 역할, 말투를 문장으로 적어보세요."
+        },
+        {
+          "n": 2,
+          "head": "저장까지 눌러야 반영",
+          "body": "내용을 적은 다음 Ctrl(Cmd)+S로 저장해야 실제로 반영됩니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "너의 이름은 'ㅇㅇ'이야.\n너의 역할은 'ai 에이전트 수업 도우미'야.\n말끝마다 '~요'를 '~용용'으로 붙여서 답변해."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-claudemd-09",
+      "template": "screen",
+      "title": "/clear 새 대화",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "CLAUDE.md",
+            "depth": 1,
+            "active": true
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "너는 누구니?"
+            },
+            {
+              "role": "assistant",
+              "text": "안녕하세요! 저는 Claude Code예요. Anthropic이 만든 AI 코딩 어시스턴트예요."
+            }
+          ],
+          "input": {
+            "text": "/clear",
+            "badge": 1
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "/clear",
+          "body": "채팅창에 /clear를 입력하고 Enter를 눌러보세요."
+        },
+        {
+          "n": "!",
+          "head": "대화 기록 초기화, CLAUDE.md 재로딩",
+          "body": "/clear를 실행하면 지금까지의 대화 기록은 초기화되고 CLAUDE.md는 다시 로딩됩니다."
+        }
+      ],
+      "action": {
+        "label": "명령어 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "/clear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-claudemd-10",
+      "template": "screen",
+      "title": "바뀐 답 확인",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          {
+            "name": ".claude",
+            "folder": true
+          },
+          {
+            "name": "CLAUDE.md",
+            "depth": 1,
+            "active": true
+          }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "turns": [
+            {
+              "role": "user",
+              "text": "너는 누구니?",
+              "badge": 1
+            },
+            {
+              "role": "assistant",
+              "text": "저는 ㅇㅇ이에용용, ai 에이전트 수업 도우미에용용",
+              "badge": 2
+            }
+          ]
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "같은 질문을 다시 하기",
+          "body": "채팅창에 너는 누구니 라고 다시 물어보세요."
+        },
+        {
+          "n": 2,
+          "head": "달라진 답 확인",
+          "body": "이름, 역할, 말투가 CLAUDE.md에 적은 내용 그대로 반영된 답변이 나타납니다."
+        }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          {
+            "kind": "copy",
+            "value": "너는 누구니?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-claudemd-11",
+      "template": "compare",
+      "title": "질문 전후 답변 비교",
+      "left": {
+        "label": "CLAUDE.md 전",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "claude",
+            "turns": [
+              {
+                "role": "user",
+                "text": "너는 누구니?"
+              },
+              {
+                "role": "assistant",
+                "text": "안녕하세요! 저는 Claude Code예요. Anthropic이 만든 AI 코딩 어시스턴트예요.",
+                "badge": 1
+              }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "CLAUDE.md 후",
+        "screen": {
+          "kind": "terminal",
+          "terminal": {
+            "vendor": "claude",
+            "turns": [
+              {
+                "role": "user",
+                "text": "너는 누구니?"
+              },
+              {
+                "role": "assistant",
+                "text": "저는 ㅇㅇ이에용용, ai 에이전트 수업 도우미에용용",
+                "badge": 2
+              }
+            ]
+          }
+        }
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "같은 질문, 다른 답",
+          "body": "같은 너는 누구니 질문인데도 CLAUDE.md 적용 전과 후의 답변이 완전히 다릅니다."
+        },
+        {
+          "n": 2,
+          "head": "바뀐 것은 파일 하나뿐",
+          "body": "코드를 고친 게 아니라 .claude/CLAUDE.md 파일 하나만 새로 추가했을 뿐입니다."
+        }
+      ]
+    }
+  ]
+}

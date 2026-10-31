@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect x="60" y="44" width="78" height="24" rx="12" fill="#2563eb"/>
+  <text x="99" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.05em">ADV 04</text>
+  <text x="60" y="130" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="36" font-weight="700" fill="#171717">API 키 발급,  두려워하지 마세요</text>
+  <text x="60" y="178" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#6b7280">MCP · CLI가 아직 적은 지금, API 키 발급 능력이 AI 활용의 핵심입니다</text>
+  <line x1="60" y1="212" x2="1220" y2="212" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="252" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="600" fill="#9ca3af" letter-spacing="0.08em">현실</text>
+  <rect x="60" y="266" width="540" height="110" rx="8" fill="#fef2f2"/>
+  <text x="84" y="296" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="700" fill="#dc2626">현재 상황</text>
+  <text x="84" y="320" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">MCP 서버 / CLI 툴이 출시된 서비스는 아직 소수</text>
+  <text x="84" y="342" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">대부분의 서비스는 여전히 API 키 방식만 제공</text>
+  <text x="84" y="364" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">→  API 키 없이는 연결 자체가 불가능</text>
+  <rect x="640" y="266" width="580" height="110" rx="8" fill="#f0fdf4"/>
+  <text x="664" y="296" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="700" fill="#059669">API 키가 있으면</text>
+  <text x="664" y="320" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">Claude가 bash로 curl 직접 호출</text>
+  <text x="664" y="342" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">Python Skill로 래핑해서 자동화</text>
+  <text x="664" y="364" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" fill="#374151">→  어떤 서비스든 에이전트로 연결 가능</text>
+  <line x1="60" y1="396" x2="1220" y2="396" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="428" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="600" fill="#9ca3af" letter-spacing="0.08em">API 키 발급이 어렵지 않은 이유</text>
+  <text x="60" y="468" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">① 회원가입 → ② 개발자 콘솔 접속 → ③ 키 생성 → ④ 복사  —  대부분 이 4단계</text>
+  <text x="60" y="508" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="19" fill="#374151">Claude에게 '이 서비스 API 키 발급 방법 알려줘'라고 물으면 단계별로 안내</text>
+  <rect x="60" y="568" width="1160" height="52" rx="10" fill="#2563eb"/>
+  <text x="640" y="599" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="17" font-weight="600" fill="#ffffff">API 키 발급 = AI를 진짜로 활용하기 위한 첫 번째 실전 스킬</text>
+</svg>

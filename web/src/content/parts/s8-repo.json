@@ -1,0 +1,289 @@
+{
+  "id": "s8-repo",
+  "title": "레포 만들기 · 백업 · 복구",
+  "summary": "새 레포를 만들어 카페 랜딩 페이지를 올리고, 폴더를 지웠다가 클론으로 되살린다.",
+  "slides": [
+    {
+      "id": "s8-repo-01",
+      "template": "screen",
+      "title": "레포 생성 · 업로드",
+      "replaceWithCapture": "cafe-landing 폴더 생성 및 gh repo create 실제 실행 결과",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          { "name": "cafe-landing", "folder": true }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "fit": true,
+          "turns": [
+            { "role": "user", "text": "cafe-landing 이라는 폴더를 만들고 여기에 간단한 카페 랜딩 페이지를 만들어서 새로운 레포로 업로드 해줘", "badge": 1 },
+            { "role": "tool", "text": "PowerShell(mkdir cafe-landing)" },
+            { "role": "tool", "text": "Write(cafe-landing/index.html)" },
+            { "role": "tool", "text": "PowerShell(git init)" },
+            { "role": "tool", "text": "PowerShell(git add .)" },
+            { "role": "tool", "text": "PowerShell(git commit -m \"카페 랜딩 페이지 첫 버전\")", "badge": 2 },
+            { "role": "tool", "text": "PowerShell(gh repo create student/cafe-landing --public --source . --push)" },
+            { "role": "assistant", "text": "cafe-landing 폴더를 만들고 레포에 업로드했어요. https://github.com/student/cafe-landing", "badge": 3 }
+          ],
+          "footer": {
+            "text": "⏵⏵ bypass permissions on (shift+tab to cycle)",
+            "seg": [
+              { "t": "⏵⏵ bypass permissions on", "c": "red" },
+              { "t": " (shift+tab to cycle)", "c": "dim" }
+            ]
+          }
+        }
+      },
+      "notes": [
+        { "n": 1, "head": "폴더 · 페이지 · 업로드 요청", "body": "새 폴더 이름과 간단한 카페 랜딩 페이지를 만들어서 새 레포로 올려달라고 한 번에 입력해 보세요." },
+        { "n": 2, "head": "커밋 메모 남기고 저장", "body": "커밋할 때마다 어떤 버전인지 알 수 있게 짧은 메모를 함께 남깁니다." },
+        { "n": 3, "head": "완성된 레포 주소", "body": "작업이 끝나면 방금 만들어진 레포 주소를 answer 로 바로 확인할 수 있습니다." }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          { "kind": "copy", "value": "cafe-landing 이라는 폴더를 만들고 여기에 간단한 카페 랜딩 페이지를 만들어서 새로운 레포로 업로드 해줘" }
+        ]
+      }
+    },
+    {
+      "id": "s8-repo-02",
+      "template": "screen",
+      "title": "레포 페이지",
+      "screen": {
+        "kind": "web",
+        "url": "github.com/student/cafe-landing",
+        "tabs": [
+          { "title": "student/cafe-landing", "icon": "github", "active": true }
+        ],
+        "page": {
+          "type": "github-repo",
+          "loggedIn": true,
+          "zoom": 1.35,
+          "owner": "student",
+          "name": "cafe-landing",
+          "nameBadge": 1,
+          "forks": "0",
+          "stars": "0",
+          "tabs": [
+            { "label": "Code", "active": true },
+            { "label": "Issues" },
+            { "label": "Pull requests" },
+            { "label": "Actions" },
+            { "label": "Projects" },
+            { "label": "Security" },
+            { "label": "Insights" },
+            { "label": "Settings" }
+          ],
+          "branch": "main",
+          "branchesCount": 1,
+          "tagsCount": 0,
+          "lastCommit": { "author": "student", "message": "카페 랜딩 페이지 첫 버전", "sha": "3f2a9c1", "when": "now", "badge": 3 },
+          "files": [
+            { "name": "index.html", "message": "카페 랜딩 페이지 첫 버전", "when": "now", "badge": 2 }
+          ],
+          "about": {
+            "topics": [],
+            "stars": "0",
+            "watching": "1",
+            "forks": "0"
+          }
+        }
+      },
+      "notes": [
+        { "n": 1, "head": "student / cafe-landing", "body": "주소 그대로 내 계정 아래에 cafe-landing 레포가 새로 생긴 것을 확인합니다." },
+        { "n": 2, "head": "올라간 파일 index.html", "body": "Claude 가 만든 카페 랜딩 페이지 파일 index.html 이 그대로 올라와 있습니다." },
+        { "n": 3, "head": "커밋 메모", "body": "커밋할 때 남긴 메모 카페 랜딩 페이지 첫 버전 이 파일 옆과 맨 위에 함께 보입니다." }
+      ]
+    },
+    {
+      "id": "s8-repo-03",
+      "template": "compare",
+      "title": "README 작성 · 업로드",
+      "ratio": [2, 3],
+      "left": {
+        "label": "README 작성 요청",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            { "name": "cafe-landing", "folder": true }
+          ],
+          "terminal": {
+            "vendor": "claude",
+            "cwd": "C:\\agent1",
+            "fit": true,
+            "turns": [
+              { "role": "user", "text": "README.md 파일을 만들어서 이 폴더가 뭔지 설명하고 레포에 올려줘", "badge": 1 },
+              { "role": "tool", "text": "Write(cafe-landing/README.md)" },
+              { "role": "tool", "text": "PowerShell(git add README.md)" },
+              { "role": "tool", "text": "PowerShell(git commit -m \"README 추가\")", "badge": 2 },
+              { "role": "tool", "text": "PowerShell(git push)" },
+              { "role": "assistant", "text": "README.md 를 만들어서 레포에 올렸어요." }
+            ],
+            "footer": {
+              "text": "⏵⏵ bypass permissions on (shift+tab to cycle)",
+              "seg": [
+                { "t": "⏵⏵ bypass permissions on", "c": "red" },
+                { "t": " (shift+tab to cycle)", "c": "dim" }
+              ]
+            }
+          }
+        }
+      },
+      "right": {
+        "label": "레포 페이지",
+        "screen": {
+          "kind": "web",
+          "url": "github.com/student/cafe-landing",
+          "tabs": [
+            { "title": "student/cafe-landing", "icon": "github", "active": true }
+          ],
+          "page": {
+            "type": "github-repo",
+            "loggedIn": true,
+            "zoom": 1.15,
+            "owner": "student",
+            "name": "cafe-landing",
+            "forks": "0",
+            "stars": "0",
+            "tabs": [
+              { "label": "Code", "active": true },
+              { "label": "Issues" },
+              { "label": "Pull requests" },
+              { "label": "Actions" },
+              { "label": "Projects" },
+              { "label": "Security" },
+              { "label": "Insights" },
+              { "label": "Settings" }
+            ],
+            "branch": "main",
+            "branchesCount": 1,
+            "tagsCount": 0,
+            "lastCommit": { "author": "student", "message": "README 추가", "sha": "8b41d07", "when": "now" },
+            "files": [
+              { "name": "README.md", "message": "README 추가", "when": "now", "badge": 3 },
+              { "name": "index.html", "message": "카페 랜딩 페이지 첫 버전", "when": "5 minutes ago" }
+            ],
+            "readme": {
+              "file": "README.md",
+              "heading": "cafe-landing",
+              "lines": [
+                "간단한 카페 랜딩 페이지입니다.",
+                "index.html 하나로 카페 소개 · 메뉴 · 오시는 길을 보여줍니다.",
+                "브라우저에서 index.html 을 열면 바로 볼 수 있습니다."
+              ],
+              "badge": 4
+            },
+            "about": {
+              "topics": [],
+              "stars": "0",
+              "watching": "1",
+              "forks": "0"
+            }
+          }
+        }
+      },
+      "notes": [
+        { "n": 1, "head": "README 작성 요청", "body": "이 폴더가 뭔지 설명하는 README.md 를 만들어서 레포에 올려달라고 입력해 보세요." },
+        { "n": 2, "head": "커밋 후 푸시", "body": "새로 만든 README.md 파일도 커밋하고 GitHub 로 푸시합니다." },
+        { "n": 3, "head": "README.md 추가", "body": "파일 목록에 README.md 가 새로 생기고 커밋 메모 README 추가 가 함께 보입니다." },
+        { "n": 4, "head": "레포 설명", "body": "파일 목록 아래에 README 에 적은 설명이 이 레포 소개로 그대로 표시됩니다." }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          { "kind": "copy", "value": "README.md 파일을 만들어서 이 폴더가 뭔지 설명하고 레포에 올려줘" }
+        ]
+      }
+    },
+    {
+      "id": "s8-repo-04",
+      "template": "compare",
+      "title": "Delete 키로 폴더 삭제",
+      "ratio": [1, 1],
+      "left": {
+        "label": "Delete 키로 삭제",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [
+            { "name": "cafe-landing", "folder": true, "selected": true, "badge": 1 }
+          ],
+          "noTerminal": true,
+          "terminal": { "vendor": "claude", "cwd": "C:\\agent1", "turns": [], "footer": { "text": "⏵⏵ bypass permissions on (shift+tab to cycle)", "seg": [ { "t": "⏵⏵ bypass permissions on", "c": "red" }, { "t": " (shift+tab to cycle)", "c": "dim" } ] } },
+          "keycap": { "keys": ["Delete"], "badge": 2 },
+          "confirm": {
+            "title": "Are you sure you want to delete 'cafe-landing' and its contents?",
+            "detail": "You can restore this folder from the Recycle Bin.",
+            "checkbox": "Do not ask me again",
+            "buttons": [
+              { "label": "Move to Recycle Bin", "primary": true, "badge": 3 },
+              { "label": "Cancel" }
+            ]
+          }
+        }
+      },
+      "right": {
+        "label": "삭제 후",
+        "screen": {
+          "kind": "vscode",
+          "folder": "agent1",
+          "files": [],
+          "noTerminal": true,
+          "terminal": { "vendor": "claude", "cwd": "C:\\agent1", "turns": [], "footer": { "text": "⏵⏵ bypass permissions on (shift+tab to cycle)", "seg": [ { "t": "⏵⏵ bypass permissions on", "c": "red" }, { "t": " (shift+tab to cycle)", "c": "dim" } ] } }
+        }
+      },
+      "notes": [
+        { "n": 1, "head": "cafe-landing 선택", "body": "탐색기에서 cafe-landing 폴더를 한 번 클릭해 선택합니다." },
+        { "n": 2, "head": "Delete 키", "body": "키보드의 Delete 키를 누르면 정말 지울지 묻는 창이 뜹니다." },
+        { "n": 3, "head": "Move to Recycle Bin", "body": "이 버튼을 누르면 폴더가 휴지통으로 가고 탐색기에서 사라집니다." }
+      ]
+    },
+    {
+      "id": "s8-repo-05",
+      "template": "screen",
+      "title": "클론으로 복구",
+      "replaceWithCapture": "git clone 실제 실행 결과",
+      "screen": {
+        "kind": "vscode",
+        "folder": "agent1",
+        "files": [
+          { "name": "cafe-landing", "folder": true, "badge": 2 }
+        ],
+        "terminal": {
+          "vendor": "claude",
+          "cwd": "C:\\agent1",
+          "fit": true,
+          "turns": [
+            { "role": "user", "text": "/clear" },
+            { "role": "user", "text": "https://github.com/student/cafe-landing 이 레포를 현재 폴더에 클론 해줘", "badge": 1 },
+            { "role": "tool", "text": "PowerShell(git clone https://github.com/student/cafe-landing)" },
+            { "role": "assistant", "text": "레포를 클론해서 cafe-landing 폴더를 되살렸어요." }
+          ],
+          "footer": {
+            "text": "⏵⏵ bypass permissions on (shift+tab to cycle)",
+            "seg": [
+              { "t": "⏵⏵ bypass permissions on", "c": "red" },
+              { "t": " (shift+tab to cycle)", "c": "dim" }
+            ]
+          }
+        }
+      },
+      "notes": [
+        { "n": 1, "head": "레포 주소로 클론 요청", "body": "지워진 레포 주소를 그대로 붙여넣되 student 를 내 GitHub 계정 이름으로 바꿔서 현재 폴더에 클론해달라고 입력해 보세요." },
+        { "n": 2, "head": "폴더 복구 완료", "body": "클론이 끝나면 탐색기에 cafe-landing 폴더가 다시 나타납니다." }
+      ],
+      "action": {
+        "label": "프롬프트 복사",
+        "items": [
+          { "kind": "copy", "value": "/clear" },
+          { "kind": "copy", "value": "https://github.com/student/cafe-landing 이 레포를 현재 폴더에 클론 해줘", "desc": "student 를 내 GitHub 계정 이름으로 바꿔서 보내세요" }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "s1-agy-login",
+  "title": "Antigravity 로그인",
+  "summary": "Antigravity CLI 에 Google 계정으로 로그인하는 과정을 확인한다.",
+  "slides": [
+    {
+      "id": "s1-agy-login-01",
+      "template": "screen",
+      "title": "Google 로그인 방식 선택",
+      "screen": {
+        "kind": "shot",
+        "src": "/shots/agy_Google_로그인_선택.png"
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "Google 로 로그인 선택",
+          "body": "로그인 방법 목록에서 Google 항목을 선택합니다."
+        },
+        {
+          "n": 2,
+          "head": "브라우저 자동 실행",
+          "body": "선택하면 터미널이 아니라 브라우저 화면이 자동으로 열리고 그 안에서 로그인이 진행됩니다."
+        }
+      ]
+    },
+    {
+      "id": "s1-agy-login-02",
+      "template": "screen",
+      "title": "Google 계정 선택",
+      "screen": {
+        "kind": "shot",
+        "src": "/shots/agy_Google_계정_선택.png"
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "본인 Google 계정 클릭",
+          "body": "브라우저가 열리면 실습에 쓸 본인 Google 계정을 클릭해서 선택합니다."
+        },
+        {
+          "n": "!",
+          "head": "권한 요청 내용 확인",
+          "body": "Antigravity 가 요청하는 접근 권한 내용을 확인한 뒤 진행하세요."
+        }
+      ]
+    },
+    {
+      "id": "s1-agy-login-03",
+      "template": "screen",
+      "title": "브라우저에서 Google 인증",
+      "screen": {
+        "kind": "shot",
+        "src": "/shots/agy_브라우저_인증.png"
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "인증 완료 화면의 코드",
+          "body": "로그인과 권한 승인이 끝나면 브라우저 화면에 일회용 코드가 표시됩니다."
+        },
+        {
+          "n": 2,
+          "head": "코드를 클립보드에 복사",
+          "body": "복사 버튼을 눌러 이 코드를 클립보드에 복사합니다."
+        }
+      ]
+    },
+    {
+      "id": "s1-agy-login-04",
+      "template": "screen",
+      "title": "인증 코드를 터미널에 입력",
+      "screen": {
+        "kind": "shot",
+        "src": "/shots/agy_인증_코드_입력.png"
+      },
+      "notes": [
+        {
+          "n": 1,
+          "head": "복사한 코드를 붙여넣기",
+          "body": "복사한 코드를 터미널 입력창에 붙여넣고 Enter 를 누릅니다."
+        },
+        {
+          "n": 2,
+          "head": "로그인 성공 메시지",
+          "body": "로그인 성공 메시지가 뜨면 로그인이 끝난 것입니다."
+        },
+        {
+          "n": "!",
+          "head": "인증 코드는 노출 금지",
+          "body": "실제 화면의 인증 코드는 캡처하거나 다른 사람과 공유하지 마세요."
+        }
+      ]
+    }
+  ]
+}

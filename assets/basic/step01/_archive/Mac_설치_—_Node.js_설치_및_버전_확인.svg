@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#ffffff"/>
+
+  <!-- 헤더 배지 -->
+  <rect x="60" y="44" width="78" height="24" rx="12" fill="#171717"/>
+  <text x="99" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#fafafa" letter-spacing="0.8">BASIC 01</text>
+  <rect x="150" y="44" width="66" height="24" rx="12" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+  <text x="183" y="60" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#6b7280">macOS</text>
+
+  <!-- 제목 -->
+  <text x="60" y="100" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="26" font-weight="800" fill="#0a0a0a" letter-spacing="-0.02em">Mac 설치 — Node.js 설치 및 버전 확인</text>
+
+  <!-- Step 1: Node.js 설치 -->
+  <rect x="60" y="134" width="1160" height="80" rx="12" fill="#1c1c1e"/>
+  <text x="88" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#a3e635">1. Node.js 설치</text>
+  <text x="88" y="190" font-family="'Courier New',Courier,monospace" font-size="16" fill="#e5e7eb">brew install node</text>
+
+  <!-- Step 2: 버전 확인 -->
+  <rect x="60" y="232" width="1160" height="80" rx="12" fill="#1c1c1e"/>
+  <text x="88" y="260" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#a3e635">2. 설치 확인</text>
+  <text x="88" y="295" font-family="'Courier New',Courier,monospace" font-size="15" fill="#e5e7eb">node --version    npm --version</text>
+
+</svg>
